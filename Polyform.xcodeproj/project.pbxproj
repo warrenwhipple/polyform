@@ -1,0 +1,330 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2DC9DACC16826D65005ADDE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC9DACB16826D65005ADDE5 /* UIKit.framework */; };
+		2DC9DACE16826D65005ADDE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC9DACD16826D65005ADDE5 /* Foundation.framework */; };
+		2DC9DAD016826D65005ADDE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC9DACF16826D65005ADDE5 /* CoreGraphics.framework */; };
+		2DC9DAD216826D65005ADDE5 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC9DAD116826D65005ADDE5 /* GLKit.framework */; };
+		2DC9DAD416826D65005ADDE5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC9DAD316826D65005ADDE5 /* OpenGLES.framework */; };
+		2DC9DADA16826D65005ADDE5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9DAD816826D65005ADDE5 /* InfoPlist.strings */; };
+		2DC9DADC16826D65005ADDE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9DADB16826D65005ADDE5 /* main.m */; };
+		2DC9DAE016826D65005ADDE5 /* PFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9DADF16826D65005ADDE5 /* PFAppDelegate.m */; };
+		2DC9DAE216826D65005ADDE5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9DAE116826D65005ADDE5 /* Default.png */; };
+		2DC9DAE416826D65005ADDE5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9DAE316826D65005ADDE5 /* Default@2x.png */; };
+		2DC9DAE616826D65005ADDE5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9DAE516826D65005ADDE5 /* Default-568h@2x.png */; };
+		2DC9DAE916826D65005ADDE5 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9DAE716826D65005ADDE5 /* MainStoryboard_iPhone.storyboard */; };
+		2DC9DAEC16826D65005ADDE5 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9DAEA16826D65005ADDE5 /* MainStoryboard_iPad.storyboard */; };
+		2DC9DAEE16826D65005ADDE5 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9DAED16826D65005ADDE5 /* Shader.fsh */; };
+		2DC9DAF016826D65005ADDE5 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2DC9DAEF16826D65005ADDE5 /* Shader.vsh */; };
+		2DC9DAF316826D65005ADDE5 /* PFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9DAF216826D65005ADDE5 /* PFViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2DC9DAC716826D65005ADDE5 /* Polyform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Polyform.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DC9DACB16826D65005ADDE5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2DC9DACD16826D65005ADDE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2DC9DACF16826D65005ADDE5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2DC9DAD116826D65005ADDE5 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		2DC9DAD316826D65005ADDE5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		2DC9DAD716826D65005ADDE5 /* Polyform-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Polyform-Info.plist"; sourceTree = "<group>"; };
+		2DC9DAD916826D65005ADDE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2DC9DADB16826D65005ADDE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2DC9DADD16826D65005ADDE5 /* Polyform-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Polyform-Prefix.pch"; sourceTree = "<group>"; };
+		2DC9DADE16826D65005ADDE5 /* PFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFAppDelegate.h; sourceTree = "<group>"; };
+		2DC9DADF16826D65005ADDE5 /* PFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PFAppDelegate.m; sourceTree = "<group>"; };
+		2DC9DAE116826D65005ADDE5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		2DC9DAE316826D65005ADDE5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		2DC9DAE516826D65005ADDE5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2DC9DAE816826D65005ADDE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		2DC9DAEB16826D65005ADDE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		2DC9DAED16826D65005ADDE5 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
+		2DC9DAEF16826D65005ADDE5 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
+		2DC9DAF116826D65005ADDE5 /* PFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFViewController.h; sourceTree = "<group>"; };
+		2DC9DAF216826D65005ADDE5 /* PFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PFViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2DC9DAC416826D65005ADDE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DC9DACC16826D65005ADDE5 /* UIKit.framework in Frameworks */,
+				2DC9DACE16826D65005ADDE5 /* Foundation.framework in Frameworks */,
+				2DC9DAD016826D65005ADDE5 /* CoreGraphics.framework in Frameworks */,
+				2DC9DAD216826D65005ADDE5 /* GLKit.framework in Frameworks */,
+				2DC9DAD416826D65005ADDE5 /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2DC9DABC16826D65005ADDE5 = {
+			isa = PBXGroup;
+			children = (
+				2DC9DAD516826D65005ADDE5 /* Polyform */,
+				2DC9DACA16826D65005ADDE5 /* Frameworks */,
+				2DC9DAC816826D65005ADDE5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2DC9DAC816826D65005ADDE5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2DC9DAC716826D65005ADDE5 /* Polyform.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2DC9DACA16826D65005ADDE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DC9DACB16826D65005ADDE5 /* UIKit.framework */,
+				2DC9DACD16826D65005ADDE5 /* Foundation.framework */,
+				2DC9DACF16826D65005ADDE5 /* CoreGraphics.framework */,
+				2DC9DAD116826D65005ADDE5 /* GLKit.framework */,
+				2DC9DAD316826D65005ADDE5 /* OpenGLES.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2DC9DAD516826D65005ADDE5 /* Polyform */ = {
+			isa = PBXGroup;
+			children = (
+				2DC9DADE16826D65005ADDE5 /* PFAppDelegate.h */,
+				2DC9DADF16826D65005ADDE5 /* PFAppDelegate.m */,
+				2DC9DAE716826D65005ADDE5 /* MainStoryboard_iPhone.storyboard */,
+				2DC9DAEA16826D65005ADDE5 /* MainStoryboard_iPad.storyboard */,
+				2DC9DAED16826D65005ADDE5 /* Shader.fsh */,
+				2DC9DAEF16826D65005ADDE5 /* Shader.vsh */,
+				2DC9DAF116826D65005ADDE5 /* PFViewController.h */,
+				2DC9DAF216826D65005ADDE5 /* PFViewController.m */,
+				2DC9DAD616826D65005ADDE5 /* Supporting Files */,
+			);
+			path = Polyform;
+			sourceTree = "<group>";
+		};
+		2DC9DAD616826D65005ADDE5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2DC9DAD716826D65005ADDE5 /* Polyform-Info.plist */,
+				2DC9DAD816826D65005ADDE5 /* InfoPlist.strings */,
+				2DC9DADB16826D65005ADDE5 /* main.m */,
+				2DC9DADD16826D65005ADDE5 /* Polyform-Prefix.pch */,
+				2DC9DAE116826D65005ADDE5 /* Default.png */,
+				2DC9DAE316826D65005ADDE5 /* Default@2x.png */,
+				2DC9DAE516826D65005ADDE5 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2DC9DAC616826D65005ADDE5 /* Polyform */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DC9DAF616826D65005ADDE5 /* Build configuration list for PBXNativeTarget "Polyform" */;
+			buildPhases = (
+				2DC9DAC316826D65005ADDE5 /* Sources */,
+				2DC9DAC416826D65005ADDE5 /* Frameworks */,
+				2DC9DAC516826D65005ADDE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Polyform;
+			productName = Polyform;
+			productReference = 2DC9DAC716826D65005ADDE5 /* Polyform.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2DC9DABE16826D65005ADDE5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PF;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Warren Whipple";
+			};
+			buildConfigurationList = 2DC9DAC116826D65005ADDE5 /* Build configuration list for PBXProject "Polyform" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2DC9DABC16826D65005ADDE5;
+			productRefGroup = 2DC9DAC816826D65005ADDE5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2DC9DAC616826D65005ADDE5 /* Polyform */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2DC9DAC516826D65005ADDE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DC9DADA16826D65005ADDE5 /* InfoPlist.strings in Resources */,
+				2DC9DAE216826D65005ADDE5 /* Default.png in Resources */,
+				2DC9DAE416826D65005ADDE5 /* Default@2x.png in Resources */,
+				2DC9DAE616826D65005ADDE5 /* Default-568h@2x.png in Resources */,
+				2DC9DAE916826D65005ADDE5 /* MainStoryboard_iPhone.storyboard in Resources */,
+				2DC9DAEC16826D65005ADDE5 /* MainStoryboard_iPad.storyboard in Resources */,
+				2DC9DAEE16826D65005ADDE5 /* Shader.fsh in Resources */,
+				2DC9DAF016826D65005ADDE5 /* Shader.vsh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2DC9DAC316826D65005ADDE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DC9DADC16826D65005ADDE5 /* main.m in Sources */,
+				2DC9DAE016826D65005ADDE5 /* PFAppDelegate.m in Sources */,
+				2DC9DAF316826D65005ADDE5 /* PFViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2DC9DAD816826D65005ADDE5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DC9DAD916826D65005ADDE5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2DC9DAE716826D65005ADDE5 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DC9DAE816826D65005ADDE5 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		2DC9DAEA16826D65005ADDE5 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DC9DAEB16826D65005ADDE5 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2DC9DAF416826D65005ADDE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2DC9DAF516826D65005ADDE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2DC9DAF716826D65005ADDE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Polyform/Polyform-Prefix.pch";
+				INFOPLIST_FILE = "Polyform/Polyform-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2DC9DAF816826D65005ADDE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Polyform/Polyform-Prefix.pch";
+				INFOPLIST_FILE = "Polyform/Polyform-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2DC9DAC116826D65005ADDE5 /* Build configuration list for PBXProject "Polyform" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DC9DAF416826D65005ADDE5 /* Debug */,
+				2DC9DAF516826D65005ADDE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DC9DAF616826D65005ADDE5 /* Build configuration list for PBXNativeTarget "Polyform" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DC9DAF716826D65005ADDE5 /* Debug */,
+				2DC9DAF816826D65005ADDE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2DC9DABE16826D65005ADDE5 /* Project object */;
+}
