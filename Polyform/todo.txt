@@ -1,0 +1,289 @@
+---------------
+Tasks In Order
+---------------
+x Bricks spawn on a timer.
+x Bricks grow as they spawn.
+  x Remove hint and spawn states.
+  x Add spawning property.
+  x Bricks grow as circles as they spawn.
+  x Bricks switch to segments when they complete spawning.
+x Center models.
+  x Center physics models.
+  x Center graphics models.
+x Bricks do not spawn on top of each other.
+  x Bricks spawn with random distribution.
+  x Spawning bricks move away from each other and existing bricks.
+x Selected brick bubble masks other brick bubbles.
+x Hints appear before bricks spawn.
+  x Hints appear.
+  x Hints are animated.
+x Boundary pushes bricks back in.
+x Fix bricks just touching base staying hover.
+x Display brick stack score.
+  x Move boundary down.
+  x Create digit display.
+  x Create number display.
+  x Display stable brick count.
+x Add UILabel Overlays
+x Game ends when three bricks drops.
+  x Game pauses on last dropped brick.
+  x Create GameOverLayer
+x Create GameOver Layer
+  x Create game over label.
+  x Create restart button graphic.
+  x Create menu button graphic.
+  x Label buttons.
+  x Enable button glow when pressed.
+  x GameOver Layer appears on game over.
+  x Enable restart button action.
+  x Enable menu button action.
+o Boundary grows with more bricks.
+o Boundary lines are drawn in landscape mode.
+o Create new Pause Layer.
+  o Move pause button to weight display.
+o Add pentominos and pentarounds.
+o Add pentiamonds and hexiamonds.
+o Tanks light up on touch.
+o Camera zooms in and out with double tap.
+o Display tower height and best height this round.
+o Display segments lost / destroyed.
+o Move pause button to tower base.
+  o Move tower base up.
+  o Adjust graphics to go further down.
+o Hints move away from bricks and other hints.
+o Fix startup screen for iPhone 5 display.
+o Make buttons consistent.
+  o Fix button arrow sizes and transparency.
+o Add helper graphics.
+o Cause helper graphics to fade away.
+o Low res verticies when zoomed out.
+o Create better icon.
+o Create cooler scene transitions.
+o Add back in music with test tracks.
+o Create brightness data files for test tracks.
+o Implement brightness tracking for test tracks.
+o Implement fade to one track on game exit.
+o Make menu system slightly track music with brightness.
+o Create final music tracks.
+o Create final music brightness data files.
+o Implement final music.
+o Find free sounds.
+o Implement sounds.
+o Integrate with game center.
+o Beta test.
+o Submit.
+
+-------
+ To Do
+-------
+o Spawners
+  o Bricks spawn on a timer.
+  o Spawner displays countdown timer.
+  o Bricks spawn randomly across top of boundary.
+  o Spawn bricks at centroid.
+o Bubbles
+  x Fix bubble select loose brick bug.
+  x Change bubble display to gl_triangles.
+  x Reformat manipulators as bubbles.
+  x Create manipulator graphic.
+  x Track control brick with selection disc.
+  x Rotate brick with touch disk.
+  x Drag brick with touch field.
+  x Selection disc size adapts to brick and screen size;
+  x Damp flicked bricks.
+  x Move graphics code form selectionDisc to bubbles.
+  x Bubbles hold bricks while rotating.
+  x Bubbles grow and shrink when selected.
+  x Tapping field deselects brick.
+  o Selected brick bubble masks other brick bubbles.
+  o Bubble allow for custom sizing and brightness.
+o Boundary
+  x Boundary matches portrait screen size.
+  x Boundary stops bricks.
+  x Camera matches boundary.
+  o Boundary pushes bricks back in.
+  o Boundary grows with more bricks.
+  o Boundary lines are drawn in landscape mode.
+o Bricks
+  o Make polyominos.
+    x Make monominos through tetrominos.
+    o Make pentominos.
+  o Make polyiamonds.
+    x Make moniamonds through tetriamonds.
+    o Make pentiamonds.
+    o Make hexiamonds.
+  o Make polyrounds.
+    x Make monorounds through tetrarounds.
+    o Make pentarounds.
+  o Graphics
+    x Add low res verticies.
+    o Add borders verticies.
+o Bases
+  x Change display to gl_triangles.
+  x Make adjustable base.
+  x Make adjustable well.
+  x Well walls do not cause brick release.
+  x Make adjustable bubble base.
+  o Make convex base.
+  o Make concave base.
+  o Make jagged base.
+  o Make jagged well.
+  o Make concave well.
+o Help
+  o Display drag, rotate, pan, and zoom hint graphics.
+  o Make hint graphics fade away on touch.
+o Scene Transition.
+  x Transitions fade.
+o Pause Menu
+  x Create button sprites.
+  x Create sprite handler.
+  x Display pause button.
+  x Create pause layer.
+  x Pause game and show pause layer.
+  x Menu button exits to menu.
+  o Exit to menu does not show world during fade.
+o Start Screen
+  x Design title screen that falls apart.
+  x Create graphic that matches initial view.
+  x Create UIView temporary overlay for seamless transition.
+  o Move triangle location data to json file.
+  o Recalculate trianlge location data for accuracy.
+o Menu System
+  o Fix menu side selection bug.
+  x Make some tower tanks.
+  x Make tanks blocks monochrome.
+  x Tank colors slowly change.
+  x Tanks have walls.
+  x Tanks blacked out outside walls.
+  x Tanks slide back and forth.
+  x Tanks snap into place.
+  x Selecting center tank begins game.
+  x Selecting side tanks scrolls sideays.
+  o Well tanks destroy bricks.
+  o Tanks have index underneath.
+  o Tanks light up on touch.
+  x Round tank edges.
+o Boundaries
+  x Destroy bricks that pass certain depth.
+o Camera
+  x Camera adjusts to minumumRect.
+  o Follow tower height.
+  o Move with a capped max acceleration.
+  o Predict braking distance and decelerate accordingly.
+  o Leave play in camera tracking.
+  o Follow control block below tower height.
+  o Auto zoom out to see unstable blocks.
+  x Two touch pans.
+  x Two touch zooms.
+  o Two touch pan/zoom hints appear then disappear.
+o Scanner
+  x Give bricks segments.
+  x Scanner destroys dominos and monominos.
+  x Scanner destroys triominos.
+  x Scanner destroys tetrominos.
+  o Scanner destroys pentominos.
+  x Scanner does not activate until bricks are stable.
+  x Redundant scan check.
+  x Draw scan lines.
+  o Scan lines display segment count.
+  o Scan lines display stability timer.
+  o Segment lit fuses displayed.
+o Scoring System
+  x Track tower height by AABB.
+  o Display tower height.
+  o Display best height this round.
+  o Display segments lost.
+  o Display segments destroyed.
+o Icon / Launch Images
+  o Create icon vector art.
+  o Import icon images.
+  x Create temporary launch images from screenshots.
+  x Create launch image to match initial loading screen.
+
+--------------------------
+ Notes and Ideas on Modes
+--------------------------
+
+* Tall tower
+  Build a tall tower.
+  (like 99 bricks)
+
+* Phase shift:
+  Add a control that allows block to pass through others while held.
+  (like perfect balance)
+  
+* Gravity planet:
+  Blocks fall into a center gravity field.
+  
+* Rescue:
+  Build a tower up to an object.
+  Then destroy parts of the tower to get the object down.
+  Optional that object is fragile.
+  (like totem destroyer and topple)
+  
+* Destruction:
+  Bubbles of acid or bomb fall onto tower and destroy bricks.
+  What is the goal?
+  
+* Acid rain:
+  Acid occasionally falls from the sky destroying bricks.
+  Certain bricks are immune.
+  Could have different immunity types.
+  (like cover orange)
+  
+* Slippery block:
+  Base starts with some variation of 45 degree surfaces.
+  Blocks are very slippery.
+  (like 45 degree tetris)
+  
+* Row destruction:
+  Laser scans over tower and destroys block in a row.
+  Blocks must have a relatively small velocity.
+  Laser can have a thickness.
+  Blocks must be destructible.
+  (like tetris & nottetris 2)
+  
+* Low tower:
+  Keep a tower below a certain level.
+  This level could rise as the game continues.
+  (like 99 bricks)
+  
+* Sideways:
+  Get your tower to build sideways a certain amount.
+  
+* Glue bricks:
+  Certain bricks glue together when they touch.
+  One contact becomes a joint.
+  Two contacts become one body.
+  
+* Glue/Acid/Mercury  bubble:
+  Splashes on some bricks.
+  
+* Glue/Acid/Mercury syringe.
+  Injects a single brick.
+  
+* Magnet bricks:
+  Certain brick are attracted to each other;
+  
+* Glass bricks:
+  Certain bricks break under weight.
+  
+* No rotation mode:
+
+* No slide mode:
+  
+* Twin:
+  Control 2 blocks simultaneously.
+  
+* Full drop:
+  Drop blocks from very top.
+
+
+----------------------
+ Helvetica Neue Sizes
+----------------------
+
+Helvetica Neue UltraLight: 50.00pt = 1px width
+Helvetica Neue Light: 14.71pt = 1px width
+Helvetica Neue: 10.53pt = 1px width
+Helvetica Neue Medium: 8.000pt = 1px width

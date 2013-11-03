@@ -6,8 +6,7 @@
 //  Copyright (c) 2012 Warren Whipple. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <GLKit/GLKit.h>
+#import "PFScene.h"
 
 @interface PFViewController : GLKViewController
 
