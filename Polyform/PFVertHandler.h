@@ -40,6 +40,6 @@
 - (void)addBase:(PFBase*)base;
 - (void)addRect:(CGRect)rect;
 - (void)addCircleWithPosition:(GLKVector2)position radius:(float)radius;
-- (void)addNumber:(int)number withCenter:(GLKVector2)center height:(float)height;
+- (void)addInteger:(int)number withCenter:(GLKVector2)center height:(float)height;
 
 @end

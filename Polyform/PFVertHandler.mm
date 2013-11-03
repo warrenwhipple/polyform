@@ -765,7 +765,7 @@ indexCount = _indexCount;
     _indexCount += modelIndexCount;
 }
 
-- (void)addNumber:(int)number withCenter:(GLKVector2)center height:(float)height
+- (void)addInteger:(int)number withCenter:(GLKVector2)center height:(float)height
 {
     NSAssert(number>=0 && number <=999,@"");
     int digit1 = number / 100;

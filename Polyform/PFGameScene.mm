@@ -17,9 +17,9 @@
 #import "PFHint.h"
 #import "PFScanner.h"
 
+#import "PFStackCountLabel.h"
+#import "PFStackHeightLabel.h"
 #import "PFGameOverView.h"
-
-#import "PFLabel.h"
 
 #define DESELECT_MAX_DISTSQ (5.0f) // pixels
 #define DESELECT_MAX_TIME (0.2f) // seconds
@@ -49,6 +49,8 @@
     NSTimeInterval *_tapToDeselectTimestamp;
     CGPoint *_tapToDeselectPoint;
     
+    PFStackCountLabel *_stackCountLabel;
+    PFStackHeightLabel *_stackHeightLabel;
     PFGameOverView *_gameOverView;
     
     PFBrick *_gameOverBrick;
@@ -95,6 +97,8 @@
         
         //if (_ruleSet.scannerIsAvtive) _scanner = [[PFScanner alloc] init];
         
+        _stackCountLabel = [[PFStackCountLabel alloc] initWithCamera:_camera];
+        _stackHeightLabel = [[PFStackHeightLabel alloc] initWithCamera:_camera];
         _gameOverView = [[PFGameOverView alloc] initWithFrame:(CGRect){{0.0f, 0.0f}, [_camera screenSize]}];
         
         _spawnLoopCountdown = 0;
@@ -159,6 +163,8 @@
         } break;
         case PFSceneStateExitComplete:
         {
+            [_stackCountLabel removeFromSuperview];
+            [_stackHeightLabel removeFromSuperview];
             [_gameOverView removeFromSuperview];
         } break;
     }
@@ -332,6 +338,8 @@
                          right:_boundary.right
                         bottom:_boundary.bottom
                            top:_boundary.top];
+    [_stackCountLabel updateWithStackCount:_stableBrickCount];
+    [_stackHeightLabel updateWithStackHeight:_topStableBrickHeight];
 }
 
 #pragma mark - Brick handling methods
@@ -638,9 +646,10 @@
         dropStartCoord.y += 1.5f;
     }
     
-    
     [vertHandler changeColor:(GLKVector4){{1.0f,1.0f,1.0f,1.0f}}];
-    [vertHandler addNumber:_stableBrickCount withCenter:(GLKVector2){{0.0f,-1.125f}} height:1.0f];
+    
+    //[vertHandler addInteger:_stableBrickCount withCenter:(GLKVector2){{0.0f,-1.125f}} height:0.5f];
+    //[vertHandler addInteger:_topStableBrickHeight withCenter:(GLKVector2){{0.0f,_camera.glkTop-1.125f}} height:0.5f];
 }
 
 @end

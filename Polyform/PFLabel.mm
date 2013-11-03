@@ -26,15 +26,6 @@ glkHeight = _glkHeight;
     _pixelToPointRatio = [@"M" sizeWithFont:[UIFont fontWithName:TEXT_22_FONT size:TEXT_22_POINT]].height / TEXT_22_POINT;
 }
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
 - (id) initWithCamera:(PFCamera *)camera
             glkCenter:(GLKVector2)glkCenter
             glkHeight:(float)glkHeight

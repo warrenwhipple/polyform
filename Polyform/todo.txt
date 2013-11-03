@@ -37,7 +37,10 @@ x Create GameOver Layer
   x GameOver Layer appears on game over.
   x Enable restart button action.
   x Enable menu button action.
-o Boundary grows with more bricks.
+x Display stack height at top of screen.
+  x Change count display to UILabel subclass.
+  x Add stack height.
+o Boundary grows with taller brick stack.
 o Boundary lines are drawn in landscape mode.
 o Create new Pause Layer.
   o Move pause button to weight display.

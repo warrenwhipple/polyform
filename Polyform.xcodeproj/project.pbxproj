@@ -133,6 +133,8 @@
 		2D86D62117A212C40098FDFC /* Icon-57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D86D62017A212C40098FDFC /* Icon-57@2x.png */; };
 		2D86D62317A212CE0098FDFC /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D86D62217A212CE0098FDFC /* Icon-72.png */; };
 		2D86D62517A212D30098FDFC /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D86D62417A212D30098FDFC /* Icon-72@2x.png */; };
+		2D903FEB1826B89100C682E2 /* PFStackCountLabel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D903FEA1826B89100C682E2 /* PFStackCountLabel.mm */; };
+		2D903FEE1826C1A400C682E2 /* PFStackHeightLabel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D903FED1826C1A400C682E2 /* PFStackHeightLabel.mm */; };
 		2D9D0DCF16C82D00003F876A /* polyiamonds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D9D0DCD16C82D00003F876A /* polyiamonds.json */; };
 		2D9D0DD016C82D00003F876A /* polyrounds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D9D0DCE16C82D00003F876A /* polyrounds.json */; };
 		2D9D9E0D16B0921800A820D7 /* PFBoundary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D9E0C16B0921700A820D7 /* PFBoundary.mm */; };
@@ -379,6 +381,10 @@
 		2D86D62017A212C40098FDFC /* Icon-57@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-57@2x.png"; path = "../Icon-57@2x.png"; sourceTree = "<group>"; };
 		2D86D62217A212CE0098FDFC /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
 		2D86D62417A212D30098FDFC /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "../Icon-72@2x.png"; sourceTree = "<group>"; };
+		2D903FE91826B89100C682E2 /* PFStackCountLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFStackCountLabel.h; sourceTree = "<group>"; };
+		2D903FEA1826B89100C682E2 /* PFStackCountLabel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PFStackCountLabel.mm; sourceTree = "<group>"; };
+		2D903FEC1826C1A400C682E2 /* PFStackHeightLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFStackHeightLabel.h; sourceTree = "<group>"; };
+		2D903FED1826C1A400C682E2 /* PFStackHeightLabel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PFStackHeightLabel.mm; sourceTree = "<group>"; };
 		2D9D0DCD16C82D00003F876A /* polyiamonds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = polyiamonds.json; path = "../../Library/Application Support/iPhone Simulator/6.1/Applications/C683C25D-F2AD-4DC1-AAE2-5FB6F98F05C2/Documents/polyiamonds.json"; sourceTree = "<group>"; };
 		2D9D0DCE16C82D00003F876A /* polyrounds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = polyrounds.json; path = "../../Library/Application Support/iPhone Simulator/6.1/Applications/C683C25D-F2AD-4DC1-AAE2-5FB6F98F05C2/Documents/polyrounds.json"; sourceTree = "<group>"; };
 		2D9D9E0B16B0921700A820D7 /* PFBoundary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFBoundary.h; sourceTree = "<group>"; };
@@ -1024,6 +1030,10 @@
 				2DC9DB0316826E87005ADDE5 /* PFGameScene.mm */,
 				2D40B98417E5025000032B2D /* PFGameOverView.h */,
 				2D40B98517E5025000032B2D /* PFGameOverView.m */,
+				2D903FE91826B89100C682E2 /* PFStackCountLabel.h */,
+				2D903FEA1826B89100C682E2 /* PFStackCountLabel.mm */,
+				2D903FEC1826C1A400C682E2 /* PFStackHeightLabel.h */,
+				2D903FED1826C1A400C682E2 /* PFStackHeightLabel.mm */,
 				2D2335CB1682CB8200075200 /* PFContactListener.h */,
 				2D2335CC1682CB8300075200 /* PFContactListener.mm */,
 				2D9D9E0B16B0921700A820D7 /* PFBoundary.h */,
@@ -1226,6 +1236,7 @@
 				2D2336B01685523400075200 /* PFTetrominoT.mm in Sources */,
 				2D2336B31685525100075200 /* PFTetrominoZ.mm in Sources */,
 				2D2336BF1688A87E00075200 /* PFBody.mm in Sources */,
+				2D903FEB1826B89100C682E2 /* PFStackCountLabel.mm in Sources */,
 				2D2336D6168B60DB00075200 /* PFMoniamond.mm in Sources */,
 				2D2336D9168B6CAD00075200 /* PFDiamond.mm in Sources */,
 				2D2336DC168B74F600075200 /* PFTriamond.mm in Sources */,
@@ -1240,6 +1251,7 @@
 				2D233711168BF9A600075200 /* PFTriroundT.mm in Sources */,
 				2D233714168C021A00075200 /* PFTetraroundB.mm in Sources */,
 				2D233717168C022D00075200 /* PFTetraroundC.mm in Sources */,
+				2D903FEE1826C1A400C682E2 /* PFStackHeightLabel.mm in Sources */,
 				2D23371A168C024100075200 /* PFTetraroundD.mm in Sources */,
 				2D23371D168C025D00075200 /* PFTetraroundI.mm in Sources */,
 				2D233720168C027200075200 /* PFTetraroundJ.mm in Sources */,
