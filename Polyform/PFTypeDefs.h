@@ -157,6 +157,25 @@ static PFBrickSpecies randomSpeciesFromGenus(PFBrickGenus genus)
     }
 }
 
+static int brickKindCountFromGenus(PFBrickGenus genus)
+{
+    switch (genus)
+    {
+        case bgMonomino: return 1;
+        case bgDomino: return 1;
+        case bgTriomino: return 2;
+        case bgTetromino: return 7;
+        case bgMoniamond: return 1;
+        case bgDiamond: return 1;
+        case bgTriamond: return 1;
+        case bgTetriamond: return 4;
+        case bgMonoround: return 1;
+        case bgDiround: return 1;
+        case bgTriround: return 3;
+        case bgTetraround: return 10;
+    }
+}
+
 typedef struct
 {
     PFBrickGenus brickGenus;

@@ -15,6 +15,8 @@
 
 - (id)initWithScreenSize:(CGSize)screenSize;
 
+- (void)updateWithStackHeight:(float)stackHeight;
+
 - (void)boundBrick:(PFBrick*)brick;
 
 - (void)writeToVertHandler:(PFVertHandler*)vertHandler;

@@ -36,13 +36,10 @@
 
 - (void)updateWithStackHeight:(float)stackHeight
 {
-    //float newStackHeightRounded = ((float)truncf(stackHeight*10.0f+0.5f))*0.1f;
-    //if (newStackHeightRounded != _stackHeightRounded)
     if (stackHeight != _stackHeight)
     {
         _stackHeight = stackHeight;
         self.text = [NSString stringWithFormat:@"%.01f", _stackHeight];
-        printf("%.01f\n", _stackHeight);
     }
 }
 

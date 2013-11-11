@@ -10,6 +10,7 @@
 #import "PFButton.h"
 
 @interface PFGameOverView : UIView
+
 @property (readonly, nonatomic) PFButton *menuButton, *restartButton;
 
 - (void)update;

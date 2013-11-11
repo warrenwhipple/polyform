@@ -40,14 +40,19 @@ x Create GameOver Layer
 x Display stack height at top of screen.
   x Change count display to UILabel subclass.
   x Add stack height.
-o Boundary grows with taller brick stack.
-o Boundary lines are drawn in landscape mode.
-o Create new Pause Layer.
-  o Move pause button to weight display.
-o Add pentominos and pentarounds.
-o Add pentiamonds and hexiamonds.
+x Boundary grows with taller brick stack height.
+x Create new Pause Layer.
+  x Create layer with buttons.
+  x Button actions work.
+  x Move pause button to weight display.
+o Add colors to bricks.
 o Tanks light up on touch.
 o Camera zooms in and out with double tap.
+o Fix up stack height display.
+  o Stack height tracks top vertex.
+  o Stack height follows top of tower.
+  o Stack height flows smoothly.
+  o Stack height has little arrow.
 o Display tower height and best height this round.
 o Display segments lost / destroyed.
 o Move pause button to tower base.
@@ -57,6 +62,8 @@ o Hints move away from bricks and other hints.
 o Fix startup screen for iPhone 5 display.
 o Make buttons consistent.
   o Fix button arrow sizes and transparency.
+o Add pentominos and pentarounds.
+o Add pentiamonds and hexiamonds.
 o Add helper graphics.
 o Cause helper graphics to fade away.
 o Low res verticies when zoomed out.

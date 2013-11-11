@@ -538,6 +538,8 @@ indexCount = _indexCount;
 
 - (void)addGameBricks:(NSMutableSet *)bricks
     withSelectedBrick:(PFBrick *)selectedBrick
+           colorCount:(int)colorCount
+               colors:(GLKVector4 *)colors
 {
     float touchRingAlpha = _sceneBrightness * _lineBrightness;
     
@@ -618,9 +620,10 @@ indexCount = _indexCount;
     }
     
     // Draw bricks
-    [self changeColor:(GLKVector4){{1.0f,1.0f,1.0f,_lineBrightness*_sceneBrightness}}];
+    // [self changeColor:(GLKVector4){{1.0f,1.0f,1.0f,_lineBrightness*_sceneBrightness}}];
     for (PFBrick *brick in bricks)
     {
+        [self changeColor:colors[brick.group]];
         if (brick.isSpawning)
         {
             [self addBrick:brick

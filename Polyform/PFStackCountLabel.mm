@@ -22,7 +22,7 @@
         self.text = @"0";
         self.font = [UIFont fontWithName:TEXT_16_FONT size:TEXT_16_POINT];
         self.textAlignment = NSTextAlignmentCenter;
-        self.textColor = [UIColor whiteColor];
+        self.textColor = [UIColor blackColor];
         self.backgroundColor = [UIColor clearColor];
         [self sizeToFit];
         self.frame = CGRectMake(self.frame.origin.x,

@@ -108,6 +108,7 @@
     view.drawableDepthFormat = GLKViewDrawableDepthFormatNone;
     view.drawableColorFormat = GLKViewDrawableColorFormatRGB565;
     view.drawableMultisample = GLKViewDrawableMultisample4X;
+    //view.drawableMultisample = GLKViewDrawableMultisampleNone;
     [EAGLContext setCurrentContext:_context];
     
     _program = [[GLProgram alloc] initWithVertexShaderFilename:@"Shader"
@@ -160,6 +161,7 @@
     
     if (_currentScene.state == PFSceneStateExitComplete)
     {
+        [_vertHandler changeLineBrightness:1.0f];
         PFSceneType nextSceneType = _currentScene.nextSceneType;
         PFRuleSet nextRuleSet;
         if (nextSceneType == PFSceneTypeGame) nextRuleSet = _currentScene.nextRuleSet;

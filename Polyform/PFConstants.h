@@ -38,7 +38,7 @@
 #define SPAWN_LOOP_LENGTH (180) // frames
 #define HINT_TIMER_LENGTH (60) // frames
 #define SPAWN_TIMER_LENGTH (30) // frames
-#define DROP_START_COUNT (0) // 0 or more
+#define DROP_START_COUNT (99) // 0 or more
 #define TEXT_75_FONT (@"HelveticaNeue-UltraLight")
 #define TEXT_22_FONT (@"HelveticaNeue-Light")
 #define TEXT_16_FONT (@"HelveticaNeue")
@@ -47,12 +47,6 @@
 #define TEXT_22_POINT (22.07f)
 #define TEXT_16_POINT (15.80f)
 #define TEXT_12_POINT (12.00f)
-
-// boundary constants
-#define BOUNDARY_INITIAL_TOP (30.0f) // m
-#define BOUNDARY_CONSTANT_BOTTOM (-2.0f) // m
-#define BOUNDARY_SPRING_CONSTANT (5.0f) // ?
-#define BOUNDARY_DAMPING (0.95f) // 0 to 1
 
 // base constants
 #define WELL_FADE_WIDTH (-1.0f)

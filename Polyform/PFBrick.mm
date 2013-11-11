@@ -90,7 +90,6 @@ ringGlow = _ringGlow;
 {
     [self spawnWithPosition:position
                       angle:randomAngle()
-                      group:0
                    segments:nil
                       state:state];
 }
@@ -140,11 +139,9 @@ ringGlow = _ringGlow;
 
 - (void)spawnWithPosition:(b2Vec2)position
                     angle:(float)angle
-                    group:(int)group
                  segments:(NSArray *)passedSegments
                     state:(PFBrickState)state
 {
-    _group = group;
     _state = state;
     
     b2BodyDef bodyDef;
@@ -172,6 +169,43 @@ ringGlow = _ringGlow;
         shape.m_radius = SPAWN_START_RADIUS;
         fixtureDef.shape = &shape;
         _spawnFixture = _body->CreateFixture(&fixtureDef);
+    }
+    
+    switch (_species)
+    {
+        case bsMonomino:    _group = 0; break;
+        case bsDomino:      _group = 0; break;
+        case bsTriominoI:   _group = 0; break;
+        case bsTriominoL:   _group = 1; break;
+        case bsTetrominoI:  _group = 0; break;
+        case bsTetrominoJ:  _group = 1; break;
+        case bsTetrominoL:  _group = 2; break;
+        case bsTetrominoO:  _group = 3; break;
+        case bsTetrominoS:  _group = 4; break;
+        case bsTetrominoT:  _group = 5; break;
+        case bsTetrominoZ:  _group = 6; break;
+        case bsMoniamond:    _group = 0; break;
+        case bsDiamond:      _group = 0; break;
+        case bsTriamond:     _group = 0; break;
+        case bsTetriamondC:  _group = 0; break;
+        case bsTetriamondI:  _group = 1; break;
+        case bsTetriamondIr: _group = 2; break;
+        case bsTetriamondT:  _group = 3; break;
+        case bsMonoround:    _group = 0; break;
+        case bsDiround:      _group = 0; break;
+        case bsTriroundI:    _group = 0; break;
+        case bsTriroundL:    _group = 1; break;
+        case bsTriroundT:    _group = 2; break;
+        case bsTetraroundB:  _group = 0; break;
+        case bsTetraroundC:  _group = 1; break;
+        case bsTetraroundD:  _group = 2; break;
+        case bsTetraroundI:  _group = 3; break;
+        case bsTetraroundJ:  _group = 4; break;
+        case bsTetraroundL:  _group = 5; break;
+        case bsTetraroundO:  _group = 6; break;
+        case bsTetraroundS:  _group = 7; break;
+        case bsTetraroundT:  _group = 8; break;
+        case bsTetraroundZ:  _group = 9; break;
     }
     
     /*

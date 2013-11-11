@@ -8,9 +8,18 @@
 
 #import "PFBoundary.h"
 
+#define BOUNDARY_INITIAL_TOP (30.0f) // m
+#define BOUNDARY_CONSTANT_BOTTOM (-2.0f) // m
+#define BOUNDARY_SPRING_CONSTANT (5.0f) // ?
+#define BOUNDARY_DAMPING (0.95f) // 0 to 1
+#define BOUNDARY_SIZE_SPRING_CONSTANT (0.01f) // newtons / m
+#define BOUNDARY_SIZE_DAMPING (0.6f)  // 0 - 1 lower is more damping
+
+
 @implementation PFBoundary
 {
     float _aspectRatio;
+    float _topVelocity;
 }
 
 @synthesize left = _left, right = _right, bottom = _bottom, top = _top;
@@ -28,6 +37,15 @@
         _left = -_right;
     }
     return self;
+}
+
+- (void)updateWithStackHeight:(float)stackHeight
+{
+    float targetHeight = MAX(stackHeight*2.0f, _top);
+    _topVelocity = (_topVelocity + ((targetHeight - _top) * BOUNDARY_SIZE_SPRING_CONSTANT)) * BOUNDARY_SIZE_DAMPING;
+    _top += _topVelocity;
+    _right = (_top - _bottom) * _aspectRatio * 0.5f;
+    _left = -_right;
 }
 
 - (void)boundBrick:(PFBrick *)brick

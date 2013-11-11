@@ -20,10 +20,11 @@
 #import "PFStackCountLabel.h"
 #import "PFStackHeightLabel.h"
 #import "PFGameOverView.h"
+#import "PFPauseView.h"
 
 #define DESELECT_MAX_DISTSQ (5.0f) // pixels
 #define DESELECT_MAX_TIME (0.2f) // seconds
-#define PAUSE_BUTTON_RADIUS (32.0f) //vpixels
+#define COLOR_SHIFT_PER_FRAME (0.001) // 0 to 1
 
 @implementation PFGameScene
 {
@@ -52,6 +53,8 @@
     PFStackCountLabel *_stackCountLabel;
     PFStackHeightLabel *_stackHeightLabel;
     PFGameOverView *_gameOverView;
+    PFPauseView *_pauseView;
+    float _gameSpeedMultiplier;
     
     PFBrick *_gameOverBrick;
     
@@ -59,6 +62,9 @@
     
     float _sceneBrightness;
     float _gameLineBrightness;
+    int _colorCount;
+    float _colorShift;
+    GLKVector4 *_colors;
 }
  
 @synthesize camera = _camera;
@@ -100,11 +106,16 @@
         _stackCountLabel = [[PFStackCountLabel alloc] initWithCamera:_camera];
         _stackHeightLabel = [[PFStackHeightLabel alloc] initWithCamera:_camera];
         _gameOverView = [[PFGameOverView alloc] initWithFrame:(CGRect){{0.0f, 0.0f}, [_camera screenSize]}];
+        _pauseView = [[PFPauseView alloc] initWithFrame:(CGRect){{0.0f, 0.0f}, [_camera screenSize]}];
+        _gameSpeedMultiplier = 1.0f;
         
         _spawnLoopCountdown = 0;
         _dropCount = DROP_START_COUNT;
         
         _gameLineBrightness = 1.0f;
+        
+        _colorCount = brickKindCountFromGenus(_ruleSet.brickGenus);
+        _colors = (GLKVector4*)malloc(sizeof(GLKVector4)*_colorCount);
     }
     return self;
 }
@@ -123,6 +134,7 @@
         delete _contactListener;
         _contactListener = NULL;
     }
+    free(_colors);
 }
 
 - (void)changeToState:(PFSceneState)newState
@@ -135,7 +147,9 @@
         } break;
         case PFSceneStateRunning:
         {
-            
+            if ([_pauseView superview] != nil) [_pauseView removeFromSuperview];
+            _gameSpeedMultiplier = 1.0f;
+            _gameLineBrightness = 1.0f;
         } break;
         case PFSceneStateExiting:
         {
@@ -143,29 +157,33 @@
         } break;
         case PFSceneStatePausing:
         {
-            
+            [_pauseView reset];
+            CGSize screenSize = [_camera screenSize];
+            _pauseView.center = CGPointMake(screenSize.width*0.5f, screenSize.height*0.5f);
+            [[_camera glkView] addSubview:_pauseView];
         } break;
         case PFSceneStatePaused:
         {
-            
+            _gameSpeedMultiplier = 0.0f;
+            _gameLineBrightness = 0.0f;
         } break;
         case PFSceneStateResuming:
         {
-            
+            [_pauseView resume];
         } break;
         case PFSceneStateGameOver:
         {
-            if ([_gameOverView superview] == nil) [[_camera glkView] addSubview:_gameOverView];
+            CGSize screenSize = [_camera screenSize];
+            _gameOverView.center = CGPointMake(screenSize.width*0.5f, screenSize.height*0.5f);
+            [[_camera glkView] addSubview:_gameOverView];
         } break;
         case PFSceneStateExitingFromPause:
-        {
-            
-        } break;
         case PFSceneStateExitComplete:
         {
             [_stackCountLabel removeFromSuperview];
             [_stackHeightLabel removeFromSuperview];
             [_gameOverView removeFromSuperview];
+            [_pauseView removeFromSuperview];
         } break;
     }
     _state = newState;
@@ -176,6 +194,8 @@
 - (void)update
 {
     [_camera update];
+    [self updateColors];
+    
     switch (_state)
     {
         case PFSceneStateEntering:
@@ -195,14 +215,40 @@
         } break;
         case PFSceneStatePausing:
         {
-            [self updateWorld];
+            [_pauseView update];
+            _gameLineBrightness = 1.0f - _pauseView.alpha;
+            _gameSpeedMultiplier = 1.0f - _pauseView.alpha;
+            if (_pauseView.alpha == 1.0f) [self changeToState:PFSceneStatePaused];
+            else [self updateWorld];
         } break;
         case PFSceneStatePaused:
         {
+            [_pauseView update];
+            if (_pauseView.menuButton.wasPressed)
+            {
+                _nextSceneType = PFSceneTypeMenu;
+                [self changeToState:PFSceneStateExitingFromPause];
+            }
+            else if (_pauseView.restartButton.wasPressed)
+            {
+                _nextSceneType = PFSceneTypeGame;
+                _nextRuleSet = _ruleSet;
+                [self changeToState:PFSceneStateExitingFromPause];
+            }
+            else if (_pauseView.playButton.wasPressed)
+            {
+                [_pauseView.playButton reset];
+                [self changeToState:PFSceneStateResuming];
+            }
+            
         } break;
         case PFSceneStateResuming:
         {
+            [_pauseView update];
+            _gameLineBrightness = 1.0f - _pauseView.alpha;
+            _gameSpeedMultiplier = 1.0f - _pauseView.alpha;
             [self updateWorld];
+            if (_pauseView.alpha == 1.0f) [self changeToState:PFSceneStateRunning];
         } break;
         case PFSceneStateGameOver:
         {
@@ -222,6 +268,14 @@
         } break;
         case PFSceneStateExitingFromPause:
         {
+            if (_sceneBrightness > 0.0f)
+            {
+                _sceneBrightness -= SCENE_TRANSITION_BRIGHTNESS_STEP;
+                _sceneBrightness = MAX(_sceneBrightness, 0.0f);
+            }
+            else
+                [self changeToState:PFSceneStateExitComplete];
+            _pauseView.alpha = _sceneBrightness;
         } break;
         case PFSceneStateExiting:
         {
@@ -242,7 +296,7 @@
 
 - (void)updateWorld
 {
-    _world->Step(TIMESTEP, VELOCITY_ITERTATIONS, POSITION_ITERATIONS);
+    _world->Step(TIMESTEP * _gameSpeedMultiplier, VELOCITY_ITERTATIONS, POSITION_ITERATIONS);
     
     _topLooseBrickHeight = 0.0f;
     _topHoverBrickHeight = 0.0f;
@@ -334,12 +388,26 @@
     }
     else _spawnLoopCountdown--;
     
+    [_boundary updateWithStackHeight:_topStableBrickHeight];
+    
     [_camera setGLKMinimumLeft:_boundary.left
                          right:_boundary.right
                         bottom:_boundary.bottom
                            top:_boundary.top];
     [_stackCountLabel updateWithStackCount:_stableBrickCount];
     [_stackHeightLabel updateWithStackHeight:_topStableBrickHeight];
+}
+
+- (void)updateColors
+{
+    _colorShift += COLOR_SHIFT_PER_FRAME;
+    if (_colorShift > 1.0f) _colorShift -= 1.0f;
+    for (int i=0; i<_colorCount; i++)
+    {
+        float hue = _colorShift + ((float)i)/((float)_colorCount);
+        if (hue > 1.0f) hue -= 1.0f;
+        _colors[i] = RGBAfromH(hue);
+    }
 }
 
 #pragma mark - Brick handling methods
@@ -496,11 +564,12 @@
         case PFSceneStateEntering:
         case PFSceneStateRunning:
         case PFSceneStateResuming:
-        {            
+        {
             // Check all touches
             for (UITouch* touch in touches)
             {
                 CGPoint touchPoint = [touch locationInView:touch.view];
+                b2Vec2 touchVec = [_camera b2Vec2FromScreenPoint:touchPoint];
                 
                 // Check for active touches on selected brick
                 if (_selectedBrick && _selectedBrick.touchA)
@@ -510,8 +579,14 @@
                                           withTouchPoint:[_camera b2Vec2FromScreenPoint:touchPoint]];
                     return; // stop processing all touches
                 }
-                
-                b2Vec2 touchVec = [_camera b2Vec2FromScreenPoint:touchPoint];
+                else // check for pause button
+                {
+                    if (touchVec.y < 0.0f && touchVec.x > -2.0f && touchVec.x < 2.0f)
+                    {
+                        [self changeToState:PFSceneStatePausing];
+                        return; // stop processing all touches
+                    }
+                }
                 
                 // Check and flag if touch is over selected brick ring
                 // (flag is usind in case there is a touch near a loose brick)
@@ -631,13 +706,17 @@
 
 - (void)writeGameToVertHandler:(PFVertHandler*)vertHandler
 {
-    [vertHandler changeColor:(GLKVector4){{1.0f,1.0f,1.0f,_sceneBrightness}}];
+    [vertHandler changeColor:(GLKVector4){{0.5f,0.5f,0.5f,_sceneBrightness}}];
     if (_base) [vertHandler addBase:_base];
     
-    [vertHandler addGameBricks:_bricks withSelectedBrick:_selectedBrick];
+    [vertHandler addGameBricks:_bricks
+             withSelectedBrick:_selectedBrick
+                    colorCount:_colorCount
+                        colors:_colors];
     
     [vertHandler addHints:_hints];
     
+    /*
     [vertHandler changeColor:(GLKVector4){{1.0f,1.0f,1.0f,0.5f}}];
     GLKVector2 dropStartCoord = (GLKVector2){{-8.0f, -1.0f}};
     for (int i=1; i<=_dropCount; i++)
@@ -645,6 +724,7 @@
         [vertHandler addCircleWithPosition:dropStartCoord radius:0.25f];
         dropStartCoord.y += 1.5f;
     }
+    */
     
     [vertHandler changeColor:(GLKVector4){{1.0f,1.0f,1.0f,1.0f}}];
     

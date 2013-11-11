@@ -36,7 +36,9 @@
 - (void)addHints:(NSMutableSet*)hints;
 - (void)addBrick:(PFBrick*)brick withOffset:(GLKVector2)offset;
 - (void)addGameBricks:(NSMutableSet*)bricks
-    withSelectedBrick:(PFBrick*)selectedBrick;
+    withSelectedBrick:(PFBrick*)selectedBrick
+           colorCount:(int)colorCount
+               colors:(GLKVector4*)colors;
 - (void)addBase:(PFBase*)base;
 - (void)addRect:(CGRect)rect;
 - (void)addCircleWithPosition:(GLKVector2)position radius:(float)radius;
