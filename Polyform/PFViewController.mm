@@ -182,7 +182,6 @@
             {
                 _currentScene = [[PFGameScene alloc] initWithRuleSet:nextRuleSet];
                 [_vertHandler loadModelsForBrickGenus:nextRuleSet.brickGenus];
-                [_vertHandler loadModelForBaseType:nextRuleSet.baseType];
                 [_vertHandler loadModelsForSmallCirclePoints:48 largeCirclePoints:64];
             } break;
         }

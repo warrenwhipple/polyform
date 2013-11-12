@@ -35,12 +35,12 @@ static __inline__ GLKVector2 glk(b2Vec2 v)
 @implementation PFVertHandler
 {
     PFVertLibrary *_brickVertLibrary, *_baseVertLibrary, *_digitVertLibrary;
-    GLKVector2 **_brickVerts, **_baseVerts, **_digitVerts;
+    GLKVector2 **_brickVerts, **_digitVerts;
     GLKVector2 *_brickCenters;
-    int *_brickVertCounts, *_baseVertCounts, *_digitVertCounts;
-    GLushort **_brickIndices, **_baseIndices, **_digitIndices;
-    int *_brickIndexCounts, *_baseIndexCounts, *_digitIndexCounts;
-    int _brickEnumCount, _baseEnumCount, _digitEnumCount;
+    int *_brickVertCounts, *_digitVertCounts;
+    GLushort **_brickIndices, **_digitIndices;
+    int *_brickIndexCounts, *_digitIndexCounts;
+    int _brickEnumCount, _digitEnumCount;
     
     GLKVector2 *_smallCircleVerts, *_largeCircleVerts, *_smallCircleOutlineVerts;
     int _smallCircleVertCount, _largeCircleVertCount, _smallCircleOutlineVertCount;
@@ -61,27 +61,22 @@ indexCount = _indexCount;
 {
     if ((self = [super init]))
     {
-        
         _brickEnumCount = bs_MAX + 1;
-        _baseEnumCount = PFBaseType_MAX - 1; // 2 less because TankBase and TankWell are never drawn
+        //_baseEnumCount = PFBaseType_MAX - 1; // 2 less because TankBase and TankWell are never drawn
         _digitEnumCount = 10;
         
         // malloc because verts used are always overwritten
         _brickVerts =  (GLKVector2**)malloc(sizeof(GLKVector2*)*_brickEnumCount);
-        _baseVerts =   (GLKVector2**)malloc(sizeof(GLKVector2*)*_baseEnumCount);
         _digitVerts = (GLKVector2**)malloc(sizeof(GLKVector2*)*_digitEnumCount);
         
         _brickIndices =  (GLushort**)malloc(sizeof(GLushort*)*_brickEnumCount);
-        _baseIndices =   (GLushort**)malloc(sizeof(GLushort*)*_baseEnumCount);
         _digitIndices = (GLushort**)malloc(sizeof(GLushort*)*_digitEnumCount);
         
         // calloc because counts need to be zeroed
         _brickVertCounts =  (int*)calloc(sizeof(int), _brickEnumCount);
-        _baseVertCounts =   (int*)calloc(sizeof(int), _baseEnumCount);
         _digitVertCounts = (int*)calloc(sizeof(int), _digitEnumCount);
         
         _brickIndexCounts =  (int*)calloc(sizeof(int), _brickEnumCount);
-        _baseIndexCounts =   (int*)calloc(sizeof(int), _baseEnumCount);
         _digitIndexCounts = (int*)calloc(sizeof(int), _digitEnumCount);
         
         _bubbleVerts = (PFAlignedVert*)malloc(sizeof(PFAlignedVert)*MAX_VERTS);
@@ -111,19 +106,15 @@ indexCount = _indexCount;
     [self unloadAllModels];
     
     free(_brickIndices);
-    free(_baseIndices);
     free(_digitIndices);
     
     free(_brickVerts);
-    free(_baseVerts);
     free(_digitVerts);
 
     free(_brickIndexCounts);
-    free(_baseIndexCounts);
     free(_digitIndexCounts);
     
     free(_brickVertCounts);
-    free(_baseVertCounts);
     free(_digitVertCounts);
     
     free(_bubbleVerts);
@@ -150,19 +141,6 @@ indexCount = _indexCount;
             free(_brickIndices[i]);
             _brickIndices[i] = nil;
             _brickIndexCounts[i] = 0;
-        }
-    }
-    for (int i=0; i<_baseEnumCount; i++)
-    {
-        if (_baseVertCounts[i] > 0)
-        {
-            free(_baseVerts[i]);
-            _baseVertCounts[i] = 0;
-        }
-        if (_baseIndexCounts[i] > 0)
-        {
-            free(_baseIndices[i]);
-            _baseIndexCounts[i] = 0;
         }
     }
     for (int i=0; i<_digitEnumCount; i++)
@@ -202,35 +180,16 @@ indexCount = _indexCount;
     {
         case PFSceneTypeTitle:
         {
-            jsonArray = [self jsonArrayForFile:@"titleTriangles"];
-            for (int n=0; n<4; n++)
-                [self loadModelIntoVerts:_brickVerts
-                              vertCounts:_brickVertCounts
-                                 indices:_brickIndices
-                             indexCounts:_brickIndexCounts
-                             withEnumNum:n
-                               jsonArray:jsonArray];
+            _brickVertLibrary = [[PFVertLibrary alloc] initWithJsonFile:@"titleTriangles"];
         } break;
         case PFSceneTypeMenu:
         {
-            jsonArray = [self jsonArrayForFile:@"menuBricks"];
-            for (int n=0; n<=bs_MAX; n++)
-                [self loadModelIntoVerts:_brickVerts
-                              vertCounts:_brickVertCounts
-                                 indices:_brickIndices
-                             indexCounts:_brickIndexCounts
-                             withEnumNum:n
-                               jsonArray:jsonArray];
-            // center models
-            for (int s=0; s<=bs_MAX; s++)
-                for (int v=0; v<_brickVertCounts[s]; v++)
-                {
-                    _brickVerts[s][v].x -= _brickCenters[s].x;
-                    _brickVerts[s][v].y -= _brickCenters[s].y;
-                }
+            _brickVertLibrary = [[PFVertLibrary alloc] initWithJsonFile:@"menuBricks"];
+            [_brickVertLibrary centerModelsWithCenters:_brickCenters];
         } break;
         case PFSceneTypeGame:
         {
+            _baseVertLibrary = [[PFVertLibrary alloc] initWithJsonFile:@"bases"];
             jsonArray = [self jsonArrayForFile:@"digits"];
             for (int n=0; n<=9; n++)
                 [self loadModelIntoVerts:_digitVerts
@@ -318,16 +277,6 @@ indexCount = _indexCount;
             [self loadBrickModelWithBrickSpecies:bsTetraroundZ jsonArray:jsonArray];
             break;
     }
-}
-
-- (void)loadModelForBaseType:(PFBaseType)baseType
-{
-    [self loadModelIntoVerts:_baseVerts
-                  vertCounts:_baseVertCounts
-                     indices:_baseIndices
-                 indexCounts:_baseIndexCounts
-                 withEnumNum:baseType
-                   jsonArray:[self jsonArrayForFile:@"bases"]];
 }
 
 - (void)loadModelsForSmallCirclePoints:(int)smallCirclePoints
@@ -443,8 +392,8 @@ indexCount = _indexCount;
     PFTitlePolygonSpecies species = polygon.species;
     if (!outline) species = (PFTitlePolygonSpecies) (species + 2);
     
-    GLKVector2 *modelVerts = _brickVerts[species];
-    int modelVertCount = _brickVertCounts[species];
+    GLKVector2 *modelVerts = _brickVertLibrary.verts[species];
+    int modelVertCount = _brickVertLibrary.vertCounts[species];
     NSAssert(_vertCount+modelVertCount<MAX_VERTS,@"");
     for (int v=0; v<modelVertCount; v++)
     {
@@ -455,8 +404,8 @@ indexCount = _indexCount;
         _verts[_vertCount+v] = {p.x, p.y, c.r, c.g, c.b, c.a*_sceneBrightness};
     }
     
-    GLushort *modelIndices = _brickIndices[species];
-    int modelIndexCount = _brickIndexCounts[species];
+    GLushort *modelIndices = _brickVertLibrary.indices[species];
+    int modelIndexCount = _brickVertLibrary.indexCounts[species];
     NSAssert(_indexCount+modelIndexCount<MAX_INDICES,@"");
     for (int i=0; i<modelIndexCount; i++)
         _indices[_indexCount+i] = modelIndices[i] + _vertCount;
@@ -469,8 +418,8 @@ indexCount = _indexCount;
       withOffset:(GLKVector2)offset
 {
     PFBrickSpecies species = brick.species;
-    GLKVector2 *modelVerts = _brickVerts[species];
-    int modelVertCount = _brickVertCounts[species];
+    GLKVector2 *modelVerts = _brickVertLibrary.verts[species];
+    int modelVertCount = _brickVertLibrary.vertCounts[species];
     NSAssert(_vertCount+modelVertCount<MAX_VERTS,@"");
     for (int v=0; v<modelVertCount; v++)
     {
@@ -483,8 +432,8 @@ indexCount = _indexCount;
         };
     }
     
-    GLushort *modelIndices = _brickIndices[species];
-    int modelIndexCount = _brickIndexCounts[species];
+    GLushort *modelIndices = _brickVertLibrary.indices[species];
+    int modelIndexCount = _brickVertLibrary.indexCounts[species];
     NSAssert(_indexCount+modelIndexCount<MAX_INDICES,@"");
     for (int i=0; i<modelIndexCount; i++)
         _indices[_indexCount+i] = modelIndices[i] + _vertCount;
@@ -498,8 +447,8 @@ indexCount = _indexCount;
            scale:(float)scale
 {
     PFBrickSpecies species = brick.species;
-    GLKVector2 *modelVerts = _brickVerts[species];
-    int modelVertCount = _brickVertCounts[species];
+    GLKVector2 *modelVerts = _brickVertLibrary.verts[species];
+    int modelVertCount = _brickVertLibrary.vertCounts[species];
     NSAssert(_vertCount+modelVertCount<MAX_VERTS,@"");
     GLKVector2 scaleOffset = glk((1.0f-scale)*(brick.body->GetWorldCenter() - brick.body->GetPosition()));
     for (int v=0; v<modelVertCount; v++)
@@ -514,8 +463,8 @@ indexCount = _indexCount;
         };
     }
     
-    GLushort *modelIndices = _brickIndices[species];
-    int modelIndexCount = _brickIndexCounts[species];
+    GLushort *modelIndices = _brickVertLibrary.indices[species];
+    int modelIndexCount = _brickVertLibrary.indexCounts[species];
     NSAssert(_indexCount+modelIndexCount<MAX_INDICES,@"");
     for (int i=0; i<modelIndexCount; i++)
         _indices[_indexCount+i] = modelIndices[i] + _vertCount;
@@ -645,8 +594,8 @@ indexCount = _indexCount;
 {
     PFBaseType type = base.type;
     
-    GLKVector2 *modelVerts = _baseVerts[type];
-    int modelVertCount = _baseVertCounts[type];
+    GLKVector2 *modelVerts = _baseVertLibrary.verts[type];
+    int modelVertCount = _baseVertLibrary.vertCounts[type];
     NSAssert(_vertCount+modelVertCount<MAX_VERTS,@"");
     for (int v=0; v<modelVertCount; v++)
         _verts[_vertCount+v] =
@@ -659,8 +608,8 @@ indexCount = _indexCount;
         _currentColor.a * _sceneBrightness * _lineBrightness
     };
     
-    GLushort *modelIndices = _baseIndices[type];
-    int modelIndexCount = _baseIndexCounts[type];
+    GLushort *modelIndices = _baseVertLibrary.indices[type];
+    int modelIndexCount = _baseVertLibrary.indexCounts[type];
     NSAssert(_indexCount+modelIndexCount<MAX_INDICES,@"");
     for (int i=0; i<modelIndexCount; i++)
         _indices[_indexCount+i] = modelIndices[i] + _vertCount;

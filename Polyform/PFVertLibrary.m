@@ -13,7 +13,7 @@
 @synthesize
 verts = _verts,
 vertCounts = _vertCounts,
-indicies = _indices,
+indices = _indices,
 indexCounts = _indexCounts,
 modelCount = _modelCount;
 
@@ -73,6 +73,18 @@ modelCount = _modelCount;
     free(_indices);
     free(_vertCounts);
     free(_indexCounts);
+}
+
+- (void)centerModelsWithCenters:(GLKVector2*)centers
+{
+    // center models
+    for (int s=0; s<=bs_MAX; s++)
+        for (int v=0; v<_vertCounts[s]; v++)
+        {
+            _verts[s][v].x -= centers[s].x;
+            _verts[s][v].y -= centers[s].y;
+        }
+
 }
 
 @end

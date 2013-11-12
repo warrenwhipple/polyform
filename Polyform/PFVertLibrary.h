@@ -12,10 +12,11 @@
 
 @property (nonatomic, readonly) GLKVector2** verts;
 @property (nonatomic, readonly) int* vertCounts;
-@property (nonatomic, readonly) GLushort** indicies;
+@property (nonatomic, readonly) GLushort** indices;
 @property (nonatomic, readonly) int* indexCounts;
 @property (nonatomic, readonly) int modelCount;
 
 - (id)initWithJsonFile:(NSString*)jsonFile;
+- (void)centerModelsWithCenters:(GLKVector2*)centers;
 
 @end

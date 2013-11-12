@@ -24,7 +24,6 @@
 - (void)unloadAllModels;
 - (void)loadModelsForSceneType:(PFSceneType)sceneType;
 - (void)loadModelsForBrickGenus:(PFBrickGenus)brickGenus;
-- (void)loadModelForBaseType:(PFBaseType)baseType;
 - (void)loadModelsForSmallCirclePoints:(int)smallCirclePoints
                      largeCirclePoints:(int)largeCirclePoints;
 
