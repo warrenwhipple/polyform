@@ -12,6 +12,7 @@
 #import "PFBrick.h"
 #import "PFBase.h"
 #import "PFCamera.h"
+#import "PFVertLibrary.h"
 
 #define MAX_VERTS USHRT_MAX
 #define MAX_INDICES USHRT_MAX
@@ -33,6 +34,7 @@ static __inline__ GLKVector2 glk(b2Vec2 v)
 
 @implementation PFVertHandler
 {
+    PFVertLibrary *_brickVertLibrary, *_baseVertLibrary, *_digitVertLibrary;
     GLKVector2 **_brickVerts, **_baseVerts, **_digitVerts;
     GLKVector2 *_brickCenters;
     int *_brickVertCounts, *_baseVertCounts, *_digitVertCounts;
@@ -59,6 +61,7 @@ indexCount = _indexCount;
 {
     if ((self = [super init]))
     {
+        
         _brickEnumCount = bs_MAX + 1;
         _baseEnumCount = PFBaseType_MAX - 1; // 2 less because TankBase and TankWell are never drawn
         _digitEnumCount = 10;
