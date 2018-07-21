@@ -407,6 +407,7 @@
         float hue = _colorShift + ((float)i)/((float)_colorCount);
         if (hue > 1.0f) hue -= 1.0f;
         _colors[i] = RGBAfromH(hue);
+        _colors[i].a = 0.6f;
     }
 }
 
@@ -713,6 +714,11 @@
              withSelectedBrick:_selectedBrick
                     colorCount:_colorCount
                         colors:_colors];
+    
+    vertHandler.drawBrickOutlines = YES;
+    [vertHandler changeColor:(GLKVector4){{1.0f,1.0f,1.0f,_sceneBrightness*_gameLineBrightness}}];
+    if (_base) [vertHandler addBase:_base];
+    vertHandler.drawBrickOutlines = NO;
     
     [vertHandler addHints:_hints];
     

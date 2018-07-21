@@ -7,7 +7,6 @@
 //
 
 #import "PFTitleScene.h"
-#import "PFTitlePolygon.h"
 
 // processing divisor = 2500.0*sqrt(3.0) for polyformbreakgrid.svg;
 static int largeRightPointingTriangleCount = 65;
@@ -150,10 +149,12 @@ nextRuleSet = _nextRuleSet;
 
 {
     [vertHandler changeSceneBrightness:_brightness];
-    for (PFTitlePolygon *p in _staticPolygons) [vertHandler addTitlePolygon:p outline:YES];
-    for (PFTitlePolygon *p in _dynamicPolygons) [vertHandler addTitlePolygon:p outline:YES];
-    for (PFTitlePolygon *p in _staticPolygons) [vertHandler addTitlePolygon:p outline:NO];
-    for (PFTitlePolygon *p in _dynamicPolygons) [vertHandler addTitlePolygon:p outline:NO];
+    vertHandler.drawBrickOutlines = YES;
+    for (PFTitlePolygon *p in _staticPolygons) [vertHandler addTitlePolygon:p];
+    for (PFTitlePolygon *p in _dynamicPolygons) [vertHandler addTitlePolygon:p];
+    vertHandler.drawBrickOutlines = NO;
+    for (PFTitlePolygon *p in _staticPolygons) [vertHandler addTitlePolygon:p];
+    for (PFTitlePolygon *p in _dynamicPolygons) [vertHandler addTitlePolygon:p];
 }
 
 @end

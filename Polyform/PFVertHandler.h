@@ -20,6 +20,7 @@
 @property (readonly, nonatomic) int indexCount;
 @property (readonly, nonatomic) PFAlignedVert *verts;
 @property (readonly, nonatomic) int vertCount;
+@property (readwrite, nonatomic) BOOL drawBrickOutlines;
 
 - (void)unloadAllModels;
 - (void)loadModelsForSceneType:(PFSceneType)sceneType;
@@ -31,7 +32,7 @@
 - (void)changeColor:(GLKVector4)color;
 - (void)changeSceneBrightness:(float)sceneBrightness;
 - (void)changeLineBrightness:(float)lineBrightness;
-- (void)addTitlePolygon:(PFTitlePolygon*)polygon outline:(BOOL)outline;
+- (void)addTitlePolygon:(PFTitlePolygon*)polygon;
 - (void)addHints:(NSMutableSet*)hints;
 - (void)addBrick:(PFBrick*)brick withOffset:(GLKVector2)offset;
 - (void)addGameBricks:(NSMutableSet*)bricks

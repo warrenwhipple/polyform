@@ -16,22 +16,11 @@
 		2D119AF6169CBBB50087F650 /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D119AF5169CBBB50087F650 /* Default-Landscape.png */; };
 		2D119AF8169CBBB80087F650 /* Default-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D119AF7169CBBB80087F650 /* Default-Landscape@2x.png */; };
 		2D119AFC169CD5DF0087F650 /* PFTitleScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D119AFB169CD5DF0087F650 /* PFTitleScene.mm */; };
-		2D119B35169DE0010087F650 /* PFTitleTriangleLarge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D119B34169DE0010087F650 /* PFTitleTriangleLarge.mm */; };
-		2D119B38169DE01F0087F650 /* PFTitleTriangleSmall.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D119B37169DE01F0087F650 /* PFTitleTriangleSmall.mm */; };
-		2D119B3E169DF0E50087F650 /* PFTitlePolygon.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D119B3D169DF0E40087F650 /* PFTitlePolygon.mm */; };
 		2D1464E81791BE0F007C15F3 /* PFHint.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D1464E71791BE0F007C15F3 /* PFHint.mm */; };
 		2D1A02F6182F2B89004D81C9 /* playoff64.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A02F2182F2B89004D81C9 /* playoff64.png */; };
 		2D1A02F7182F2B89004D81C9 /* playoff64@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A02F3182F2B89004D81C9 /* playoff64@2X.png */; };
 		2D1A02F8182F2B89004D81C9 /* playon64.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A02F4182F2B89004D81C9 /* playon64.png */; };
 		2D1A02F9182F2B89004D81C9 /* playon64@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A02F5182F2B89004D81C9 /* playon64@2X.png */; };
-		2D1A030218300FCE004D81C9 /* bases.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A02FA18300FCE004D81C9 /* bases.json */; };
-		2D1A030318300FCE004D81C9 /* digits.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A02FB18300FCE004D81C9 /* digits.json */; };
-		2D1A030418300FCE004D81C9 /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A02FC18300FCE004D81C9 /* icons.json */; };
-		2D1A030518300FCE004D81C9 /* menuBricks.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A02FD18300FCE004D81C9 /* menuBricks.json */; };
-		2D1A030618300FCE004D81C9 /* polyiamonds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A02FE18300FCE004D81C9 /* polyiamonds.json */; };
-		2D1A030718300FCE004D81C9 /* polyominos.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A02FF18300FCE004D81C9 /* polyominos.json */; };
-		2D1A030818300FCE004D81C9 /* polyrounds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A030018300FCE004D81C9 /* polyrounds.json */; };
-		2D1A030918300FCE004D81C9 /* titleTriangles.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A030118300FCE004D81C9 /* titleTriangles.json */; };
 		2D2335B916827B5200075200 /* PFMonomino.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D2335B816827B5200075200 /* PFMonomino.mm */; };
 		2D2335C31682AED800075200 /* PFSegment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D2335C21682AED700075200 /* PFSegment.mm */; };
 		2D2335C71682AFE500075200 /* PFBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D2335C61682AFE500075200 /* PFBase.mm */; };
@@ -142,10 +131,22 @@
 		2D903FEB1826B89100C682E2 /* PFStackCountLabel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D903FEA1826B89100C682E2 /* PFStackCountLabel.mm */; };
 		2D903FEE1826C1A400C682E2 /* PFStackHeightLabel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D903FED1826C1A400C682E2 /* PFStackHeightLabel.mm */; };
 		2D903FF11827563E00C682E2 /* PFPauseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D903FF01827563E00C682E2 /* PFPauseView.m */; };
+		2D98E8AD1A3F6456005C7F3D /* baseOutlines.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D98E8A11A3F6456005C7F3D /* baseOutlines.json */; };
+		2D98E8AE1A3F6456005C7F3D /* bases.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D98E8A21A3F6456005C7F3D /* bases.json */; };
+		2D98E8AF1A3F6456005C7F3D /* digits.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D98E8A31A3F6456005C7F3D /* digits.json */; };
+		2D98E8B01A3F6456005C7F3D /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D98E8A41A3F6456005C7F3D /* icons.json */; };
+		2D98E8B11A3F6456005C7F3D /* menuBricks.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D98E8A51A3F6456005C7F3D /* menuBricks.json */; };
+		2D98E8B21A3F6456005C7F3D /* polyiamondoutlines.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D98E8A61A3F6456005C7F3D /* polyiamondoutlines.json */; };
+		2D98E8B31A3F6456005C7F3D /* polyiamonds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D98E8A71A3F6456005C7F3D /* polyiamonds.json */; };
+		2D98E8B41A3F6456005C7F3D /* polyominooutlines.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D98E8A81A3F6456005C7F3D /* polyominooutlines.json */; };
+		2D98E8B51A3F6456005C7F3D /* polyominos.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D98E8A91A3F6456005C7F3D /* polyominos.json */; };
+		2D98E8B61A3F6456005C7F3D /* polyroundoutlines.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D98E8AA1A3F6456005C7F3D /* polyroundoutlines.json */; };
+		2D98E8B71A3F6456005C7F3D /* polyrounds.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D98E8AB1A3F6456005C7F3D /* polyrounds.json */; };
+		2D98E8B81A3F6456005C7F3D /* titleTriangles.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D98E8AC1A3F6456005C7F3D /* titleTriangles.json */; };
+		2D98E8BB1A3F657B005C7F3D /* Buttons.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D98E8B91A3F657B005C7F3D /* Buttons.png */; };
+		2D98E8BC1A3F657B005C7F3D /* Buttons@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D98E8BA1A3F657B005C7F3D /* Buttons@2x.png */; };
 		2D9D9E0D16B0921800A820D7 /* PFBoundary.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D9E0C16B0921700A820D7 /* PFBoundary.mm */; };
 		2DA8FB22180F54EC005D49AA /* PFButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8FB21180F54EC005D49AA /* PFButton.m */; };
-		2DABAE7916A0B4BC00F7C7DF /* Buttons.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DABAE7816A0B4BC00F7C7DF /* Buttons.png */; };
-		2DABAE7C16A0B4C500F7C7DF /* Buttons@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DABAE7B16A0B4C500F7C7DF /* Buttons@2x.png */; };
 		2DBCC1DA16A797B800F622FC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DBCC1D916A797B800F622FC /* AVFoundation.framework */; };
 		2DBCC1DF16A797DA00F622FC /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DBCC1DE16A797DA00F622FC /* OpenAL.framework */; };
 		2DBCC23516A7A98A00F622FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2DBCC1ED16A7A98A00F622FC /* InfoPlist.strings */; };
@@ -191,6 +192,9 @@
 		2DC9DAF316826D65005ADDE5 /* PFViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9DAF216826D65005ADDE5 /* PFViewController.mm */; };
 		2DC9DB0416826E87005ADDE5 /* PFGameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9DB0316826E87005ADDE5 /* PFGameScene.mm */; };
 		2DC9DBA016827910005ADDE5 /* PFBrick.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DC9DB9F1682790C005ADDE5 /* PFBrick.mm */; };
+		2DF8AD261832C3B20058868B /* PFTitlePolygon.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8AD231832C3B20058868B /* PFTitlePolygon.mm */; };
+		2DF8AD271832C3B20058868B /* PFTitleTriangleLarge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8AD241832C3B20058868B /* PFTitleTriangleLarge.mm */; };
+		2DF8AD281832C3B20058868B /* PFTitleTriangleSmall.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8AD251832C3B20058868B /* PFTitleTriangleSmall.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -207,24 +211,12 @@
 		2D119AF7169CBBB80087F650 /* Default-Landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x.png"; path = "../Default-Landscape@2x.png"; sourceTree = "<group>"; };
 		2D119AFA169CD5DF0087F650 /* PFTitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTitleScene.h; sourceTree = "<group>"; };
 		2D119AFB169CD5DF0087F650 /* PFTitleScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PFTitleScene.mm; sourceTree = "<group>"; };
-		2D119B34169DE0010087F650 /* PFTitleTriangleLarge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PFTitleTriangleLarge.mm; sourceTree = "<group>"; };
-		2D119B37169DE01F0087F650 /* PFTitleTriangleSmall.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PFTitleTriangleSmall.mm; sourceTree = "<group>"; };
-		2D119B3C169DF0E30087F650 /* PFTitlePolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTitlePolygon.h; sourceTree = "<group>"; };
-		2D119B3D169DF0E40087F650 /* PFTitlePolygon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PFTitlePolygon.mm; sourceTree = "<group>"; };
 		2D1464E61791BE0F007C15F3 /* PFHint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFHint.h; sourceTree = "<group>"; };
 		2D1464E71791BE0F007C15F3 /* PFHint.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PFHint.mm; sourceTree = "<group>"; };
 		2D1A02F2182F2B89004D81C9 /* playoff64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playoff64.png; sourceTree = "<group>"; };
 		2D1A02F3182F2B89004D81C9 /* playoff64@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playoff64@2X.png"; sourceTree = "<group>"; };
 		2D1A02F4182F2B89004D81C9 /* playon64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playon64.png; sourceTree = "<group>"; };
 		2D1A02F5182F2B89004D81C9 /* playon64@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playon64@2X.png"; sourceTree = "<group>"; };
-		2D1A02FA18300FCE004D81C9 /* bases.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = bases.json; path = "../../Library/Application Support/iPhone Simulator/7.0.3/Applications/2BE25E39-419D-4115-90DD-F73F5C2E3D17/Documents/bases.json"; sourceTree = "<group>"; };
-		2D1A02FB18300FCE004D81C9 /* digits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = digits.json; path = "../../Library/Application Support/iPhone Simulator/7.0.3/Applications/2BE25E39-419D-4115-90DD-F73F5C2E3D17/Documents/digits.json"; sourceTree = "<group>"; };
-		2D1A02FC18300FCE004D81C9 /* icons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = icons.json; path = "../../Library/Application Support/iPhone Simulator/7.0.3/Applications/2BE25E39-419D-4115-90DD-F73F5C2E3D17/Documents/icons.json"; sourceTree = "<group>"; };
-		2D1A02FD18300FCE004D81C9 /* menuBricks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = menuBricks.json; path = "../../Library/Application Support/iPhone Simulator/7.0.3/Applications/2BE25E39-419D-4115-90DD-F73F5C2E3D17/Documents/menuBricks.json"; sourceTree = "<group>"; };
-		2D1A02FE18300FCE004D81C9 /* polyiamonds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = polyiamonds.json; path = "../../Library/Application Support/iPhone Simulator/7.0.3/Applications/2BE25E39-419D-4115-90DD-F73F5C2E3D17/Documents/polyiamonds.json"; sourceTree = "<group>"; };
-		2D1A02FF18300FCE004D81C9 /* polyominos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = polyominos.json; path = "../../Library/Application Support/iPhone Simulator/7.0.3/Applications/2BE25E39-419D-4115-90DD-F73F5C2E3D17/Documents/polyominos.json"; sourceTree = "<group>"; };
-		2D1A030018300FCE004D81C9 /* polyrounds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = polyrounds.json; path = "../../Library/Application Support/iPhone Simulator/7.0.3/Applications/2BE25E39-419D-4115-90DD-F73F5C2E3D17/Documents/polyrounds.json"; sourceTree = "<group>"; };
-		2D1A030118300FCE004D81C9 /* titleTriangles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = titleTriangles.json; path = "../../Library/Application Support/iPhone Simulator/7.0.3/Applications/2BE25E39-419D-4115-90DD-F73F5C2E3D17/Documents/titleTriangles.json"; sourceTree = "<group>"; };
 		2D2335B816827B5200075200 /* PFMonomino.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PFMonomino.mm; sourceTree = "<group>"; };
 		2D2335BF16827F9000075200 /* PFHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFHelper.h; sourceTree = "<group>"; };
 		2D2335C11682AED700075200 /* PFSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFSegment.h; sourceTree = "<group>"; };
@@ -398,12 +390,24 @@
 		2D903FED1826C1A400C682E2 /* PFStackHeightLabel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PFStackHeightLabel.mm; sourceTree = "<group>"; };
 		2D903FEF1827563E00C682E2 /* PFPauseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPauseView.h; sourceTree = "<group>"; };
 		2D903FF01827563E00C682E2 /* PFPauseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFPauseView.m; sourceTree = "<group>"; };
+		2D98E8A11A3F6456005C7F3D /* baseOutlines.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = baseOutlines.json; sourceTree = "<group>"; };
+		2D98E8A21A3F6456005C7F3D /* bases.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bases.json; sourceTree = "<group>"; };
+		2D98E8A31A3F6456005C7F3D /* digits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = digits.json; sourceTree = "<group>"; };
+		2D98E8A41A3F6456005C7F3D /* icons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = icons.json; sourceTree = "<group>"; };
+		2D98E8A51A3F6456005C7F3D /* menuBricks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menuBricks.json; sourceTree = "<group>"; };
+		2D98E8A61A3F6456005C7F3D /* polyiamondoutlines.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = polyiamondoutlines.json; sourceTree = "<group>"; };
+		2D98E8A71A3F6456005C7F3D /* polyiamonds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = polyiamonds.json; sourceTree = "<group>"; };
+		2D98E8A81A3F6456005C7F3D /* polyominooutlines.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = polyominooutlines.json; sourceTree = "<group>"; };
+		2D98E8A91A3F6456005C7F3D /* polyominos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = polyominos.json; sourceTree = "<group>"; };
+		2D98E8AA1A3F6456005C7F3D /* polyroundoutlines.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = polyroundoutlines.json; sourceTree = "<group>"; };
+		2D98E8AB1A3F6456005C7F3D /* polyrounds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = polyrounds.json; sourceTree = "<group>"; };
+		2D98E8AC1A3F6456005C7F3D /* titleTriangles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = titleTriangles.json; sourceTree = "<group>"; };
+		2D98E8B91A3F657B005C7F3D /* Buttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Buttons.png; sourceTree = "<group>"; };
+		2D98E8BA1A3F657B005C7F3D /* Buttons@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Buttons@2x.png"; sourceTree = "<group>"; };
 		2D9D9E0B16B0921700A820D7 /* PFBoundary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFBoundary.h; sourceTree = "<group>"; };
 		2D9D9E0C16B0921700A820D7 /* PFBoundary.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PFBoundary.mm; sourceTree = "<group>"; };
 		2DA8FB20180F54EC005D49AA /* PFButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFButton.h; sourceTree = "<group>"; };
 		2DA8FB21180F54EC005D49AA /* PFButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFButton.m; sourceTree = "<group>"; };
-		2DABAE7816A0B4BC00F7C7DF /* Buttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Buttons.png; path = ../../../Documents/Polyform/Controls/Buttons.png; sourceTree = "<group>"; };
-		2DABAE7B16A0B4C500F7C7DF /* Buttons@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Buttons@2x.png"; path = "../../../Documents/Polyform/Controls/Buttons@2x.png"; sourceTree = "<group>"; };
 		2DBCC1D916A797B800F622FC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2DBCC1DC16A797BD00F622FC /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		2DBCC1DE16A797DA00F622FC /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -499,6 +503,10 @@
 		2DC9DB0316826E87005ADDE5 /* PFGameScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PFGameScene.mm; sourceTree = "<group>"; };
 		2DC9DB9E1682790A005ADDE5 /* PFBrick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFBrick.h; sourceTree = "<group>"; };
 		2DC9DB9F1682790C005ADDE5 /* PFBrick.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PFBrick.mm; sourceTree = "<group>"; };
+		2DF8AD221832C3B20058868B /* PFTitlePolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTitlePolygon.h; sourceTree = "<group>"; };
+		2DF8AD231832C3B20058868B /* PFTitlePolygon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PFTitlePolygon.mm; sourceTree = "<group>"; };
+		2DF8AD241832C3B20058868B /* PFTitleTriangleLarge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PFTitleTriangleLarge.mm; sourceTree = "<group>"; };
+		2DF8AD251832C3B20058868B /* PFTitleTriangleSmall.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PFTitleTriangleSmall.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -525,10 +533,10 @@
 			children = (
 				2D119AFA169CD5DF0087F650 /* PFTitleScene.h */,
 				2D119AFB169CD5DF0087F650 /* PFTitleScene.mm */,
-				2D119B3C169DF0E30087F650 /* PFTitlePolygon.h */,
-				2D119B3D169DF0E40087F650 /* PFTitlePolygon.mm */,
-				2D119B34169DE0010087F650 /* PFTitleTriangleLarge.mm */,
-				2D119B37169DE01F0087F650 /* PFTitleTriangleSmall.mm */,
+				2DF8AD221832C3B20058868B /* PFTitlePolygon.h */,
+				2DF8AD231832C3B20058868B /* PFTitlePolygon.mm */,
+				2DF8AD241832C3B20058868B /* PFTitleTriangleLarge.mm */,
+				2DF8AD251832C3B20058868B /* PFTitleTriangleSmall.mm */,
 			);
 			name = TitleScene;
 			sourceTree = "<group>";
@@ -766,14 +774,18 @@
 		2D6561D916C1B5A800FEF6FE /* JSON Files */ = {
 			isa = PBXGroup;
 			children = (
-				2D1A02FA18300FCE004D81C9 /* bases.json */,
-				2D1A02FB18300FCE004D81C9 /* digits.json */,
-				2D1A02FC18300FCE004D81C9 /* icons.json */,
-				2D1A02FD18300FCE004D81C9 /* menuBricks.json */,
-				2D1A02FE18300FCE004D81C9 /* polyiamonds.json */,
-				2D1A02FF18300FCE004D81C9 /* polyominos.json */,
-				2D1A030018300FCE004D81C9 /* polyrounds.json */,
-				2D1A030118300FCE004D81C9 /* titleTriangles.json */,
+				2D98E8A11A3F6456005C7F3D /* baseOutlines.json */,
+				2D98E8A21A3F6456005C7F3D /* bases.json */,
+				2D98E8A31A3F6456005C7F3D /* digits.json */,
+				2D98E8A41A3F6456005C7F3D /* icons.json */,
+				2D98E8A51A3F6456005C7F3D /* menuBricks.json */,
+				2D98E8A61A3F6456005C7F3D /* polyiamondoutlines.json */,
+				2D98E8A71A3F6456005C7F3D /* polyiamonds.json */,
+				2D98E8A81A3F6456005C7F3D /* polyominooutlines.json */,
+				2D98E8A91A3F6456005C7F3D /* polyominos.json */,
+				2D98E8AA1A3F6456005C7F3D /* polyroundoutlines.json */,
+				2D98E8AB1A3F6456005C7F3D /* polyrounds.json */,
+				2D98E8AC1A3F6456005C7F3D /* titleTriangles.json */,
 			);
 			name = "JSON Files";
 			sourceTree = "<group>";
@@ -1020,8 +1032,8 @@
 				2D57104B1801FDF500B9EE8A /* restarton64.png */,
 				2DC9DAD716826D65005ADDE5 /* Polyform-Info.plist */,
 				2DC9DAD816826D65005ADDE5 /* InfoPlist.strings */,
-				2DABAE7816A0B4BC00F7C7DF /* Buttons.png */,
-				2DABAE7B16A0B4C500F7C7DF /* Buttons@2x.png */,
+				2D98E8B91A3F657B005C7F3D /* Buttons.png */,
+				2D98E8BA1A3F657B005C7F3D /* Buttons@2x.png */,
 				2D119AF1169CBAF30087F650 /* Default-Portrait.png */,
 				2D119AF3169CBB3E0087F650 /* Default-Portrait@2x.png */,
 				2D119AF5169CBBB50087F650 /* Default-Landscape.png */,
@@ -1136,43 +1148,47 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D1A030918300FCE004D81C9 /* titleTriangles.json in Resources */,
 				2DC9DADA16826D65005ADDE5 /* InfoPlist.strings in Resources */,
 				2DC9DAE916826D65005ADDE5 /* MainStoryboard_iPhone.storyboard in Resources */,
 				2DC9DAEC16826D65005ADDE5 /* MainStoryboard_iPad.storyboard in Resources */,
-				2D1A030518300FCE004D81C9 /* menuBricks.json in Resources */,
 				2D119AF2169CBAF30087F650 /* Default-Portrait.png in Resources */,
+				2D98E8B21A3F6456005C7F3D /* polyiamondoutlines.json in Resources */,
 				2D119AF4169CBB3E0087F650 /* Default-Portrait@2x.png in Resources */,
-				2D1A030318300FCE004D81C9 /* digits.json in Resources */,
 				2D57104F1801FDF500B9EE8A /* restartoff64@2x.png in Resources */,
+				2D98E8AE1A3F6456005C7F3D /* bases.json in Resources */,
+				2D98E8B51A3F6456005C7F3D /* polyominos.json in Resources */,
 				2D119AF6169CBBB50087F650 /* Default-Landscape.png in Resources */,
+				2D98E8B61A3F6456005C7F3D /* polyroundoutlines.json in Resources */,
+				2D98E8AD1A3F6456005C7F3D /* baseOutlines.json in Resources */,
 				2D119AF8169CBBB80087F650 /* Default-Landscape@2x.png in Resources */,
-				2DABAE7916A0B4BC00F7C7DF /* Buttons.png in Resources */,
-				2D1A030218300FCE004D81C9 /* bases.json in Resources */,
+				2D98E8B81A3F6456005C7F3D /* titleTriangles.json in Resources */,
 				2D5710531801FDF500B9EE8A /* restarton64.png in Resources */,
 				2D1A02F6182F2B89004D81C9 /* playoff64.png in Resources */,
 				2D5710521801FDF500B9EE8A /* backon64@2x.png in Resources */,
-				2DABAE7C16A0B4C500F7C7DF /* Buttons@2x.png in Resources */,
+				2D98E8BC1A3F657B005C7F3D /* Buttons@2x.png in Resources */,
 				2DBCC23516A7A98A00F622FC /* InfoPlist.strings in Resources */,
 				2D57104E1801FDF500B9EE8A /* restartoff64.png in Resources */,
-				2D1A030618300FCE004D81C9 /* polyiamonds.json in Resources */,
 				2DBCC23D16A7A98A00F622FC /* LICENSE.ObjectAL.txt in Resources */,
+				2D98E8B11A3F6456005C7F3D /* menuBricks.json in Resources */,
 				2D57104C1801FDF500B9EE8A /* backoff64.png in Resources */,
+				2D98E8B31A3F6456005C7F3D /* polyiamonds.json in Resources */,
+				2D98E8B01A3F6456005C7F3D /* icons.json in Resources */,
 				2D1A02F8182F2B89004D81C9 /* playon64.png in Resources */,
+				2D98E8B41A3F6456005C7F3D /* polyominooutlines.json in Resources */,
 				2D5710501801FDF500B9EE8A /* backon64.png in Resources */,
 				2D5710511801FDF500B9EE8A /* restarton64@2x.png in Resources */,
 				2DBCC25116A7A98A00F622FC /* ObjectAL-Info.plist in Resources */,
 				2D65622016C3697200FEF6FE /* Shader.fsh in Resources */,
 				2D65622116C3697500FEF6FE /* Shader.vsh in Resources */,
-				2D1A030818300FCE004D81C9 /* polyrounds.json in Resources */,
 				2D1A02F9182F2B89004D81C9 /* playon64@2X.png in Resources */,
 				2D1A02F7182F2B89004D81C9 /* playoff64@2X.png in Resources */,
-				2D1A030718300FCE004D81C9 /* polyominos.json in Resources */,
-				2D1A030418300FCE004D81C9 /* icons.json in Resources */,
+				2D98E8B71A3F6456005C7F3D /* polyrounds.json in Resources */,
+				2D98E8AF1A3F6456005C7F3D /* digits.json in Resources */,
 				2D57104D1801FDF500B9EE8A /* backoff64@2x.png in Resources */,
 				2D86D61F17A212BC0098FDFC /* Icon-57.png in Resources */,
 				2D788BFF1832952600A85F31 /* Default-568h@2x.png in Resources */,
 				2D86D62117A212C40098FDFC /* Icon-57@2x.png in Resources */,
+				2D98E8BB1A3F657B005C7F3D /* Buttons.png in Resources */,
 				2D86D62317A212CE0098FDFC /* Icon-72.png in Resources */,
 				2D86D62517A212D30098FDFC /* Icon-72@2x.png in Resources */,
 			);
@@ -1244,6 +1260,7 @@
 				2D2336771683524800075200 /* b2WheelJoint.cpp in Sources */,
 				2D2336781683524800075200 /* b2Rope.cpp in Sources */,
 				2D23368D168512D800075200 /* PFDomino.mm in Sources */,
+				2DF8AD261832C3B20058868B /* PFTitlePolygon.mm in Sources */,
 				2D23369016852EAA00075200 /* PFTriominoI.mm in Sources */,
 				2D233695168532B700075200 /* PFTriominoL.mm in Sources */,
 				2D2336981685377F00075200 /* PFTetrominoI.mm in Sources */,
@@ -1261,9 +1278,11 @@
 				2D2336D9168B6CAD00075200 /* PFDiamond.mm in Sources */,
 				2D2336DC168B74F600075200 /* PFTriamond.mm in Sources */,
 				2D2336DF168B7C4600075200 /* PFTetriamondC.mm in Sources */,
+				2DF8AD281832C3B20058868B /* PFTitleTriangleSmall.mm in Sources */,
 				2D2336E2168B847000075200 /* PFTetriamondI.mm in Sources */,
 				2D2336E5168B891A00075200 /* PFTetriamondIr.mm in Sources */,
 				2D2336E8168B8E5800075200 /* PFTetriamondT.mm in Sources */,
+				2DF8AD271832C3B20058868B /* PFTitleTriangleLarge.mm in Sources */,
 				2D2336EC168BADCE00075200 /* PFMonoround.mm in Sources */,
 				2D233708168BE61100075200 /* PFDiround.mm in Sources */,
 				2D23370B168BF1E600075200 /* PFTriroundI.mm in Sources */,
@@ -1285,9 +1304,6 @@
 				2D2B9611169200B500554FE3 /* PFVertHandler.mm in Sources */,
 				2D863C901695161700D86FD1 /* PFIncrementedScrollHandler.m in Sources */,
 				2D119AFC169CD5DF0087F650 /* PFTitleScene.mm in Sources */,
-				2D119B35169DE0010087F650 /* PFTitleTriangleLarge.mm in Sources */,
-				2D119B38169DE01F0087F650 /* PFTitleTriangleSmall.mm in Sources */,
-				2D119B3E169DF0E50087F650 /* PFTitlePolygon.mm in Sources */,
 				2D07AE2E16A4F81B0039BB08 /* PFAudioHandler.m in Sources */,
 				2DBCC23616A7A98A00F622FC /* OALAction.m in Sources */,
 				2DBCC23716A7A98A00F622FC /* OALActionManager.m in Sources */,

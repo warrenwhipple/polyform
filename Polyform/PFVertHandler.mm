@@ -34,7 +34,7 @@ static __inline__ GLKVector2 glk(b2Vec2 v)
 
 @implementation PFVertHandler
 {
-    PFVertLibrary *_brickVertLibrary, *_baseVertLibrary, *_digitVertLibrary;
+    PFVertLibrary *_brickVertLibrary, *_brickOutlineVertLibrary, *_baseVertLibrary, *_baseOutlineVertLibrary, *_digitVertLibrary;
     
     GLKVector2 *_brickCenters;
     
@@ -51,7 +51,8 @@ bubbleVertCount = _bubbleVertCount,
 verts = _verts,
 vertCount = _vertCount,
 indices = _indices,
-indexCount = _indexCount;
+indexCount = _indexCount,
+drawBrickOutlines = _drawBrickOutlines;
 
 - (id)init
 {
@@ -94,6 +95,12 @@ indexCount = _indexCount;
 
 - (void)unloadAllModels
 {
+    _brickVertLibrary = nil;
+    _brickOutlineVertLibrary = nil;
+    _baseVertLibrary = nil;
+    _baseOutlineVertLibrary = nil;
+    _digitVertLibrary = nil;
+    
     if (_smallCircleVertCount > 0)
     {
         free(_smallCircleVerts);
@@ -127,6 +134,7 @@ indexCount = _indexCount;
         case PFSceneTypeGame:
         {
             _baseVertLibrary = [[PFVertLibrary alloc] initWithJsonFile:@"bases"];
+            _baseOutlineVertLibrary = [[PFVertLibrary alloc] initWithJsonFile:@"baseOutlines"];
         } break;
     }
 }
@@ -141,6 +149,7 @@ indexCount = _indexCount;
         case bgTetromino:
         {
             _brickVertLibrary = [[PFVertLibrary alloc] initWithJsonFile:@"polyominos"];
+            _brickOutlineVertLibrary = [[PFVertLibrary alloc] initWithJsonFile:@"polyominooutlines"];
         } break;
         case bgMoniamond:
         case bgDiamond:
@@ -148,6 +157,7 @@ indexCount = _indexCount;
         case bgTetriamond:
         {
             _brickVertLibrary = [[PFVertLibrary alloc] initWithJsonFile:@"polyiamonds"];
+            _brickOutlineVertLibrary = [[PFVertLibrary alloc] initWithJsonFile:@"polyiamondoutlines"];
         } break;
         case bgMonoround:
         case bgDiround:
@@ -155,9 +165,11 @@ indexCount = _indexCount;
         case bgTetraround:
         {
             _brickVertLibrary = [[PFVertLibrary alloc] initWithJsonFile:@"polyrounds"];
+            _brickOutlineVertLibrary = [[PFVertLibrary alloc] initWithJsonFile:@"polyroundoutlines"];
         } break;
     }
     [_brickVertLibrary centerModelsWithCenters:_brickCenters];
+    [_brickOutlineVertLibrary centerModelsWithCenters:_brickCenters];
 }
 
 - (void)loadModelsForSmallCirclePoints:(int)smallCirclePoints
@@ -248,27 +260,71 @@ indexCount = _indexCount;
     _vertCount = 0;
     _indexCount = 0;
     _currentColor = GLKVector4Make(0.0f,0.0f,0.0f,1.0f);
+    _drawBrickOutlines = NO;
 }
 
-- (void)addTitlePolygon:(PFTitlePolygon *)polygon outline:(BOOL)outline
+- (void)addTitlePolygon:(PFTitlePolygon *)polygon
 {
     PFTitlePolygonSpecies species = polygon.species;
-    if (!outline) species = (PFTitlePolygonSpecies) (species + 2);
+    if (!_drawBrickOutlines) species = (PFTitlePolygonSpecies)(species + 2);
     
     GLKVector2 *modelVerts = _brickVertLibrary.verts[species];
     int modelVertCount = _brickVertLibrary.vertCounts[species];
+    GLushort *modelIndices = _brickVertLibrary.indices[species];
+    int modelIndexCount = _brickVertLibrary.indexCounts[species];
+
     NSAssert(_vertCount+modelVertCount<MAX_VERTS,@"");
     for (int v=0; v<modelVertCount; v++)
     {
         GLKVector2 p = glk(polygon.body->GetWorldPoint(b2(modelVerts[v])));
         GLKVector4 c;
-        if (outline) c = RGBAfromH(MIN(1.0f,MAX(0.0f,p.x/LAUNCH_SCREEN_SPAN_FOR_COLOR + 0.5f)));
+        if (_drawBrickOutlines) c = RGBAfromH(MIN(1.0f,MAX(0.0f,p.x/LAUNCH_SCREEN_SPAN_FOR_COLOR + 0.5f)));
         else c = GLKVector4Make(0.0f,0.0f,0.0f,1.0f);
         _verts[_vertCount+v] = {p.x, p.y, c.r, c.g, c.b, c.a*_sceneBrightness};
     }
     
-    GLushort *modelIndices = _brickVertLibrary.indices[species];
-    int modelIndexCount = _brickVertLibrary.indexCounts[species];
+    NSAssert(_indexCount+modelIndexCount<MAX_INDICES,@"");
+    for (int i=0; i<modelIndexCount; i++)
+        _indices[_indexCount+i] = modelIndices[i] + _vertCount;
+    
+    _vertCount += modelVertCount;
+    _indexCount += modelIndexCount;
+}
+
+- (void)addBrick:(PFBrick *)brick
+{
+    PFBrickSpecies species = brick.species;
+    GLKVector2 *modelVerts;
+    int modelVertCount;
+    GLushort *modelIndices;
+    int modelIndexCount;
+    if (_drawBrickOutlines)
+    {
+        modelVerts = _brickOutlineVertLibrary.verts[species];
+        modelVertCount = _brickOutlineVertLibrary.vertCounts[species];
+        modelIndices = _brickOutlineVertLibrary.indices[species];
+        modelIndexCount = _brickOutlineVertLibrary.indexCounts[species];
+    }
+    else
+    {
+        modelVerts = _brickVertLibrary.verts[species];
+        modelVertCount = _brickVertLibrary.vertCounts[species];
+        modelIndices = _brickVertLibrary.indices[species];
+        modelIndexCount = _brickVertLibrary.indexCounts[species];
+    }
+    
+    NSAssert(_vertCount+modelVertCount<MAX_VERTS,@"");
+    for (int v=0; v<modelVertCount; v++)
+    {
+        GLKVector2 p = glk(brick.body->GetWorldPoint(b2Vec2(modelVerts[v].x, modelVerts[v].y)));
+        _verts[_vertCount+v] =
+        {
+            p.x, p.y,
+            _currentColor.r, _currentColor.g, _currentColor.b,
+            _currentColor.a * _sceneBrightness * _lineBrightness
+        };
+    }
+    
     NSAssert(_indexCount+modelIndexCount<MAX_INDICES,@"");
     for (int i=0; i<modelIndexCount; i++)
         _indices[_indexCount+i] = modelIndices[i] + _vertCount;
@@ -281,8 +337,25 @@ indexCount = _indexCount;
       withOffset:(GLKVector2)offset
 {
     PFBrickSpecies species = brick.species;
-    GLKVector2 *modelVerts = _brickVertLibrary.verts[species];
-    int modelVertCount = _brickVertLibrary.vertCounts[species];
+    GLKVector2 *modelVerts;
+    int modelVertCount;
+    GLushort *modelIndices;
+    int modelIndexCount;
+    if (_drawBrickOutlines)
+    {
+        modelVerts = _brickOutlineVertLibrary.verts[species];
+        modelVertCount = _brickOutlineVertLibrary.vertCounts[species];
+        modelIndices = _brickOutlineVertLibrary.indices[species];
+        modelIndexCount = _brickOutlineVertLibrary.indexCounts[species];
+    }
+    else
+    {
+        modelVerts = _brickVertLibrary.verts[species];
+        modelVertCount = _brickVertLibrary.vertCounts[species];
+        modelIndices = _brickVertLibrary.indices[species];
+        modelIndexCount = _brickVertLibrary.indexCounts[species];
+    }
+    
     NSAssert(_vertCount+modelVertCount<MAX_VERTS,@"");
     for (int v=0; v<modelVertCount; v++)
     {
@@ -295,8 +368,6 @@ indexCount = _indexCount;
         };
     }
     
-    GLushort *modelIndices = _brickVertLibrary.indices[species];
-    int modelIndexCount = _brickVertLibrary.indexCounts[species];
     NSAssert(_indexCount+modelIndexCount<MAX_INDICES,@"");
     for (int i=0; i<modelIndexCount; i++)
         _indices[_indexCount+i] = modelIndices[i] + _vertCount;
@@ -310,8 +381,25 @@ indexCount = _indexCount;
            scale:(float)scale
 {
     PFBrickSpecies species = brick.species;
-    GLKVector2 *modelVerts = _brickVertLibrary.verts[species];
-    int modelVertCount = _brickVertLibrary.vertCounts[species];
+    GLKVector2 *modelVerts;
+    int modelVertCount;
+    GLushort *modelIndices;
+    int modelIndexCount;
+    if (_drawBrickOutlines)
+    {
+        modelVerts = _brickOutlineVertLibrary.verts[species];
+        modelVertCount = _brickOutlineVertLibrary.vertCounts[species];
+        modelIndices = _brickOutlineVertLibrary.indices[species];
+        modelIndexCount = _brickOutlineVertLibrary.indexCounts[species];
+    }
+    else
+    {
+        modelVerts = _brickVertLibrary.verts[species];
+        modelVertCount = _brickVertLibrary.vertCounts[species];
+        modelIndices = _brickVertLibrary.indices[species];
+        modelIndexCount = _brickVertLibrary.indexCounts[species];
+    }
+    
     NSAssert(_vertCount+modelVertCount<MAX_VERTS,@"");
     GLKVector2 scaleOffset = glk((1.0f-scale)*(brick.body->GetWorldCenter() - brick.body->GetPosition()));
     for (int v=0; v<modelVertCount; v++)
@@ -326,8 +414,6 @@ indexCount = _indexCount;
         };
     }
     
-    GLushort *modelIndices = _brickVertLibrary.indices[species];
-    int modelIndexCount = _brickVertLibrary.indexCounts[species];
     NSAssert(_indexCount+modelIndexCount<MAX_INDICES,@"");
     for (int i=0; i<modelIndexCount; i++)
         _indices[_indexCount+i] = modelIndices[i] + _vertCount;
@@ -435,7 +521,6 @@ indexCount = _indexCount;
     }
     
     // Draw bricks
-    // [self changeColor:(GLKVector4){{1.0f,1.0f,1.0f,_lineBrightness*_sceneBrightness}}];
     for (PFBrick *brick in bricks)
     {
         [self changeColor:colors[brick.group]];
@@ -447,18 +532,51 @@ indexCount = _indexCount;
         }
         else
         {
-            [self addBrick:brick
-                withOffset:(GLKVector2){{0.0f,0.0f}}];
+            [self addBrick:brick];
         }
     }
+    
+    // Draw brick outlines
+    _drawBrickOutlines = YES;
+    [self changeColor:(GLKVector4){{1.0f,1.0f,1.0f,_lineBrightness*_sceneBrightness}}];
+    for (PFBrick *brick in bricks)
+    {
+        if (brick.isSpawning)
+        {
+            [self addBrick:brick
+                withOffset:(GLKVector2){{0.0f,0.0f}}
+                     scale:brick.spawnRadius/SPAWN_END_RADIUS];
+        }
+        else
+        {
+            [self addBrick:brick];
+        }
+    }
+    _drawBrickOutlines = NO;
 }
 
 - (void)addBase:(PFBase *)base
 {
     PFBaseType type = base.type;
-    
-    GLKVector2 *modelVerts = _baseVertLibrary.verts[type];
-    int modelVertCount = _baseVertLibrary.vertCounts[type];
+    GLKVector2 *modelVerts;
+    int modelVertCount;
+    GLushort *modelIndices;
+    int modelIndexCount;
+    if (_drawBrickOutlines)
+    {
+        modelVerts = _baseOutlineVertLibrary.verts[type];
+        modelVertCount = _baseOutlineVertLibrary.vertCounts[type];
+        modelIndices = _baseOutlineVertLibrary.indices[type];
+        modelIndexCount = _baseOutlineVertLibrary.indexCounts[type];
+    }
+    else
+    {
+        modelVerts = _baseVertLibrary.verts[type];
+        modelVertCount = _baseVertLibrary.vertCounts[type];
+        modelIndices = _baseVertLibrary.indices[type];
+        modelIndexCount = _baseVertLibrary.indexCounts[type];
+    }
+
     NSAssert(_vertCount+modelVertCount<MAX_VERTS,@"");
     for (int v=0; v<modelVertCount; v++)
         _verts[_vertCount+v] =
@@ -471,8 +589,6 @@ indexCount = _indexCount;
         _currentColor.a * _sceneBrightness * _lineBrightness
     };
     
-    GLushort *modelIndices = _baseVertLibrary.indices[type];
-    int modelIndexCount = _baseVertLibrary.indexCounts[type];
     NSAssert(_indexCount+modelIndexCount<MAX_INDICES,@"");
     for (int i=0; i<modelIndexCount; i++)
         _indices[_indexCount+i] = modelIndices[i] + _vertCount;

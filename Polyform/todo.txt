@@ -45,20 +45,25 @@ x Create new Pause Layer.
   x Create layer with buttons.
   x Button actions work.
   x Move pause button to weight display.
-o Add colors to bricks.
-o Tanks light up on touch.
-o Camera zooms in and out with double tap.
+x Add colors to bricks.
+  x Create vert library object for easier loading of models.
+  x Convert existing base, brick and digit model c arrays to vert library objects.
+  x Create separate color and outline models.
+  x Add outline models to svg2tri application.
+  x Create draw brick outline method.
+  x Draw brick outlines.
+  x Draw base outlines.
+o Detect stable finger on brick release.
 o Fix up stack height display.
   o Stack height tracks top vertex.
   o Stack height follows top of tower.
   o Stack height flows smoothly.
   o Stack height has little arrow.
+o Tanks light up on touch.
+o Camera zooms in and out with double tap.
 o Display tower height and best height this round.
 o Display segments lost / destroyed.
-o Move pause button to tower base.
-  o Move tower base up.
-  o Adjust graphics to go further down.
-o Hints move away from bricks and other hints.
+x Hints move away from bricks.
 o Fix startup screen for iPhone 5 display.
 o Make buttons consistent.
   o Fix button arrow sizes and transparency.
@@ -66,7 +71,7 @@ o Add pentominos and pentarounds.
 o Add pentiamonds and hexiamonds.
 o Add helper graphics.
 o Cause helper graphics to fade away.
-o Low res verticies when zoomed out.
+o Low res vertices when zoomed out.
 o Create better icon.
 o Create cooler scene transitions.
 o Add back in music with test tracks.
