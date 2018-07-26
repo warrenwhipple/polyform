@@ -142,9 +142,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(OALSimpleAudio);
 - (void) dealloc
 {
 	OAL_LOG_DEBUG(@"%@: Dealloc", self);
-#if NS_BLOCKS_AVAILABLE && OBJECTAL_CFG_USE_BLOCKS
-	dispatch_release(oal_dispatch_queue);
-#endif
+//#if NS_BLOCKS_AVAILABLE && OBJECTAL_CFG_USE_BLOCKS
+//    dispatch_release(oal_dispatch_queue);
+//#endif
 
 	as_release(backgroundTrack);
 	[channel stop];

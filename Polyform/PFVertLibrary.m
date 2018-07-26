@@ -21,6 +21,9 @@ modelCount = _modelCount;
 {
     if ((self = [super init]))
     {
+        BOOL shouldOffsetY = [file containsString:@"polyominooutlines"];
+        BOOL shouldOffsetX = [file containsString:@"base"];
+        
         NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:file ofType:@"json"]] options:0 error:nil];
 
         _modelCount = jsonArray.count;
@@ -41,8 +44,11 @@ modelCount = _modelCount;
                 _vertCounts[m] = vertArray.count/2;
                 _verts[m] = (GLKVector2*)malloc(sizeof(GLKVector2)*vertArray.count/2);
                 for (int v=0; v<vertArray.count; v++)
-                    if (v%2==0) _verts[m][v/2].x = ((NSNumber*)[vertArray objectAtIndex:v]).floatValue;
-                    else        _verts[m][v/2].y = ((NSNumber*)[vertArray objectAtIndex:v]).floatValue;
+                    if (v%2==0) _verts[m][v/2].x = ((NSNumber*)[vertArray objectAtIndex:v]).floatValue
+                        + (shouldOffsetX ? 3.125f : 0.0f);
+                    else        _verts[m][v/2].y = ((NSNumber*)[vertArray objectAtIndex:v]).floatValue
+                        + (shouldOffsetY ? 3.125f : 0.0f);
+
                 
                 _indexCounts[m] = indexArray.count;
                 _indices[m] = (GLushort*)malloc(sizeof(GLushort)*indexArray.count);

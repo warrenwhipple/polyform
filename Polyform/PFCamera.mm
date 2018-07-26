@@ -85,7 +85,7 @@ projection = _projection;
         currentDistance = MAX(currentDistance, 100.0f);
         _translate = {
             static_cast<float32>(_translate.x - (currentMidPoint.x - _lastMidPoint.x) / _ptmRatio),
-            _translate.y + (currentMidPoint.y - _lastMidPoint.y) / _ptmRatio};
+            static_cast<float32>(_translate.y + (currentMidPoint.y - _lastMidPoint.y) / _ptmRatio)};
         _scale *= currentDistance / _lastDistance;
         _lastMidPoint = currentMidPoint;
         _lastDistance = currentDistance;

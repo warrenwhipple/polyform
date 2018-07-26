@@ -608,10 +608,10 @@ drawBrickOutlines = _drawBrickOutlines;
     _indices[_indexCount++] = _vertCount+2;
     _indices[_indexCount++] = _vertCount;
     _indices[_indexCount++] = _vertCount+3;
-    _verts[_vertCount++] = {rect.origin.x-halfWidth, rect.origin.y-halfHeight, c.r, c.g, c.b, c.a};
-    _verts[_vertCount++] = {rect.origin.x+halfWidth, rect.origin.y-halfHeight, c.r, c.g, c.b, c.a};
-    _verts[_vertCount++] = {rect.origin.x+halfWidth, rect.origin.y+halfHeight, c.r, c.g, c.b, c.a};
-    _verts[_vertCount++] = {rect.origin.x-halfWidth, rect.origin.y+halfHeight, c.r, c.g, c.b, c.a};
+    _verts[_vertCount++] = {static_cast<float>(rect.origin.x-halfWidth), static_cast<float>(rect.origin.y-halfHeight), c.r, c.g, c.b, c.a};
+    _verts[_vertCount++] = {static_cast<float>(rect.origin.x+halfWidth), static_cast<float>(rect.origin.y-halfHeight), c.r, c.g, c.b, c.a};
+    _verts[_vertCount++] = {static_cast<float>(rect.origin.x+halfWidth), static_cast<float>(rect.origin.y+halfHeight), c.r, c.g, c.b, c.a};
+    _verts[_vertCount++] = {static_cast<float>(rect.origin.x-halfWidth), static_cast<float>(rect.origin.y+halfHeight), c.r, c.g, c.b, c.a};
 }
 
 - (void)addCircleWithPosition:(GLKVector2)position
